@@ -1,0 +1,66 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 3, 2019, 4:16:35 PM
+    Author     : GraceTina
+*/
+.main {
+    position: absolute;
+    left: 150px;
+    height: 100%;
+    width: calc(100% - 150px);
+}
+.footer{
+    background-color: #333;
+    margin-top: 550px;
+    
+}
+.footer-list{
+    float: left;
+    font-style: oblique;
+    padding-left: 85px;
+    font-size: 17px;
+}
+.list-tina{
+    color: #fff;
+    list-style-type: none;
+}
+.footer2{
+    background-color: #333;
+    margin-top: 800px;
+    
+}
+.footer-list2{
+    float: left;
+    font-style: oblique;
+    padding-left: 300px;
+    font-size: 17px;
+}
+.register{
+    float: right;
+    margin-top: 250px;
+}
+.login{
+    float: left;
+    margin-top: 70px;
+}
+/*.profile{
+  background-color: #cccccc; 
+  height: 600px;
+  background-position: center; 
+  background-repeat: no-repeat;
+  background-size: cover; 
+}*/
+.profile_table{
+    float: left;
+    margin-top: 30px;
+    color: #000; 
+    font-size:20px;
+    align:left;
+}
+.table_row{
+    padding-left: 25px;
+}
