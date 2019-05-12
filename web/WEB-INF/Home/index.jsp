@@ -13,9 +13,10 @@
         <script src="${pageContext.request.contextPath}/resources/css/bootstrap/bootstrap.min.js"></script>
         <script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" media="screen" href="${pageContext.request.contextPath}/resources/css/index.css" />
-        <script src="${pageContext.request.contextPath}/resources/css/form.js"></script>
+        <link rel="stylesheet" type="text/css" media="screen" href="${pageContext.request.contextPath}/resources/fontawesome/css/fontawesome.min.css"
         <link rel="stylesheet" type="text/css" media="screen" href="${pageContext.request.contextPath}/resources/css/form.css" />
-        <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/image.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/css/form.js"></script>
+        <script  src="${pageContext.request.contextPath}/resources/js/image.js"></script>
         <title>Furistics | Home</title>
 
     </head>
@@ -73,14 +74,14 @@
                         </div>
                         `</div>
                         <div class="footer">
-                          
+
                             <fieldset>
                                 <div class="footer-list">
                                     <h6 style="font-size:25px; color: #0069d9;">FURISTICS</h6>
                                     <h7 class="list-tina"><span style="color: #0069d9;">|</span> CONTACT</h7>
                                     <ul class="list-tina"><br>
                                         <li>905-677-4848</li>
-                                        <li> <a href="">customercare@furistics.ca</a></li>
+                                        <li><i class="fa fa-envelope" style="color: #0069d9;"></i><a href="">customercare@furistics.ca</a></li>
 
                                     </ul>
                                 </div>

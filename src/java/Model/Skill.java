@@ -5,10 +5,56 @@
  */
 package Model;
 
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
 /**
  *
  * @author GraceTina
  */
-public class Skill {
+@Entity
+public class Skill implements Serializable {
+    private static final Long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "skill_id")
+    private Long skillId;
+    private String category;
+    private String name;
+
+    @ManyToOne
+    Freelancer f;
+    public Skill() {
+    }
+
+    public Long getSkillId() {
+        return skillId;
+    }
+
+    public void setSkillId(Long skillId) {
+        this.skillId = skillId;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
     
 }

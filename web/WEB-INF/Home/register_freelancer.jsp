@@ -47,46 +47,26 @@
                             <label for="email">Email Address</label><span style="color: #0069d9;">*</span><br>
                             <input name="email" class="form-control" type="email" style="width: 200%;" id="email" required="">
                         </div>
-                        <div class="form-group">
-                            <label for="phoneNo">Phone Number</label><span style="color: #0069d9;">*</span><br>
-                            <input name="phoneNo" class="form-control" type="text" style="width: 200%;" id="phoneNo" required="">
-                        </div>
-
                 </fieldset>
             </div>
             <div class="topnav">
                 <fieldset>
+                     <div class="form-group">
+                            <label for="phoneNo">Phone Number</label><span style="color: #0069d9;">*</span><br>
+                            <input name="phoneNo" class="form-control" type="text" style="width: 200%;" id="phoneNo" required="">
+                        </div>
                     <div class="form-group">
                         <label for="password">Password</label><span style="color: #0069d9;">*</span><br>
-                        <input name="password" class="form-control" type="password" style="width: 130%;" id="password" required="">
+                        <input name="password" class="form-control" type="password" style="width: 200%;" id="password" required="">
                     </div>
                     <div class="form-group">
                         <label for="confirmPass">Confirm Password</label><span style="color: #0069d9;">*</span><br>
-                        <input name="confirmPass" class="form-control" type="password" style="width: 130%;" id="confirmPass" required="">
+                        <input name="confirmPass" class="form-control" type="password" style="width: 200%;" id="confirmPass" required="">
                     </div>
 
+                   
                     <div class="form-group">
-                        <label for="category">Category</label><span style="color: #0069d9;">(you can choose more than one)*</span><br>
-                        <select name="category" multiple="multiple" style="width: 130%;" required="">
-                            <option>Web Development</option>
-                            <option>Mobile Development</option>
-                            <option>Desktop Application Development</option>
-                            <option> Article Writing</option>
-                            <option> Graphic Design</option>
-
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="skill">Skills</label><span style="color: #0069d9;">*</span><br>
-                        <textarea  name="skill" class="form-control" type="text" style="width: 130%;" id="skill" required=""></textarea>
-                    </div>
-                    <div>
-                        <p>
-                            To edit profile or view it, do it in your account.
-                        </p>
-                    </div>
-                    <div class="form-group">
-                        <button class="btn btn-primary btn-sm" style="width: 130%;" type="submit">Submit</button>
+                        <button class="btn btn-primary btn-sm" style="width: 200%; margin-top: 60px;" type="submit">Submit</button>
                     </div>
                     </form>
                 </fieldset>

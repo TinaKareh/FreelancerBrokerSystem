@@ -66,19 +66,7 @@
                         <label for="confirmPass"> Confirm Password</label><span style="color: #0069d9;">*</span><br>
                         <input name="confirmPass" class="form-control" type="password" id="confirmPass" style="width: 140%;" value="${user.user.password}" required="">
                     </div>
-                    <div class="form-group">
-                        <label for="category">Category</label><span style="color: #0069d9;">*</span><br>
-                        <select name="category" multiple="multiple" style="width: 140%;" value="${user.category}" required="">
-                            <option>Web Development</option>
-                            <option>Mobile Development</option>
-                            <option>Desktop Application Development</option>
-                            <option>Writing</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="skill">Skills</label><span style="color: #0069d9;">*</span><br>
-                        <textarea name="skill" class="form-control" type="text" style="width: 140%;" id="skill" required="">${user.skill}</textarea>
-                    </div>
+                    
                     <div class="form-group">
                         <button class="btn btn-primary btn-sm" style="width: 140%;" type="submit">Submit</button>
                     </div>

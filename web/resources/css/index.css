@@ -47,13 +47,22 @@ and open the template in the editor.
     float: left;
     margin-top: 70px;
 }
-/*.profile{
-  background-color: #cccccc; 
-  height: 600px;
-  background-position: center; 
-  background-repeat: no-repeat;
-  background-size: cover; 
-}*/
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.profile {
+  padding: 3px 18px;
+}
 .profile_table{
     float: left;
     margin-top: 30px;
@@ -63,4 +72,17 @@ and open the template in the editor.
 }
 .table_row{
     padding-left: 25px;
+}
+.form-popup{
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+}
+form-container{
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
 }

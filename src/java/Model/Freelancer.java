@@ -5,13 +5,10 @@
  */
 package Model;
 
-import Constants.CategoryType;
 import java.io.Serializable;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,12 +28,20 @@ public class Freelancer implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "freelancer_id")
     private Long freelancerId;
-   
 
     @OneToOne
     @JoinColumn(name = "user_id")
     private AuthUser user;
-   
+
+    @OneToMany
+    Set<Skill> skills;
+
+    @OneToMany
+    Set<Education> education;
+
+    @OneToMany
+    Set<Experience> experience;
+
     @OneToMany(mappedBy = "appliedBy")
     private Set<Bid> bid;
 
@@ -50,8 +55,6 @@ public class Freelancer implements Serializable {
     public void setBid(Set<Bid> bid) {
         this.bid = bid;
     }
-    
-
 
     public Long getFreelancerId() {
         return freelancerId;
@@ -61,14 +64,36 @@ public class Freelancer implements Serializable {
         this.freelancerId = freelancerId;
     }
 
-   
-
     public AuthUser getUser() {
         return user;
     }
 
     public void setUser(AuthUser user) {
         this.user = user;
+    }
+
+    public Set<Skill> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(Set<Skill> skills) {
+        this.skills = skills;
+    }
+
+    public Set<Education> getEducation() {
+        return education;
+    }
+
+    public void setEducation(Set<Education> education) {
+        this.education = education;
+    }
+
+    public Set<Experience> getExperience() {
+        return experience;
+    }
+
+    public void setExperience(Set<Experience> experience) {
+        this.experience = experience;
     }
 
 }
