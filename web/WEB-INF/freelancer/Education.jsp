@@ -52,6 +52,9 @@
                                 <label for="endYear">End Year</label><span style="color: #0069d9;">*</span><br>
                                 <input name="endYear" class="form-control" type="text" id="endYear"  value="" required="">
                             </div>
+                             <div class="form-group">
+                                 <input type="hidden" name="category" value="education">
+                            </div>
                         </div>
                         <div class="card-footer"> 
                             

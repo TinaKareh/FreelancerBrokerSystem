@@ -7,11 +7,10 @@ package Controller;
 
 import Model.Client;
 import Model.Task;
-import Service.ClientFacade;
+import Model.TaskStatus;
 import Service.TaskFacade;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,12 +21,11 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author GraceTina
  */
-@WebServlet(name = "ClientDashboardController", urlPatterns = {"/dashboard"})
-public class ClientDashboardController extends HttpServlet {
-@EJB
- private ClientFacade clientFacade;
-@EJB
-  private TaskFacade taskFacade;
+@WebServlet(name = "ClientAddTaskController", urlPatterns = {"/client/add/task"})
+public class ClientAddTaskController extends HttpServlet {
+
+    private TaskFacade facade;
+   
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -40,7 +38,7 @@ public class ClientDashboardController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/WEB-INF/client/dashboard.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/WEB-INF/client/post_task.jsp").forward(request, response);
     }
 
     /**
@@ -54,9 +52,20 @@ public class ClientDashboardController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Client user = (Client)request.getAttribute("user");
+        Task task = new Task();
+        task.setCategory(request.getParameter("category"));
+        task.setDuration(Integer.parseInt(request.getParameter("duration")));
+        task.setRangeAmount(Double.parseDouble(request.getParameter("price")));
+        task.setDescription(request.getParameter("desc"));
+        task.setStatus(TaskStatus.BD);
+        task.setAppliedBy(user);
         
-        request.setAttribute("items", taskFacade.findAll());
+        facade.create(task);
+        response.sendRedirect("/dashboard");
+        
     }
 
-    
+   
+
 }

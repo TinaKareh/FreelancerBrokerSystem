@@ -24,16 +24,18 @@
         <div class="toppnav">
             <a href="" class="btn btn-sm btn-lg">Help!</a>
             <a href="/logout">Log out</a>
-            <a href="/client/profile/view">Profile</a>
+            <a class="active" href="/client/profile/view">Profile</a>
             <a href="/client/payment">Payment</a>
-            <a class="active" href="/dashboard">Home</a>
+            <a  href="/dashboard">Home</a>
         </div>
         <div class="" >
-            <div class="card" style="float: left; padding-left: 490px; padding-top: 80px;">
-                <div class="card-header" style="align-content: center; padding-left:150px; padding-right: 150px;">
+            <div class="card" style="float: left; margin-top: 50px; margin-left: 200px;">
+                <fieldset>
+                    <legend style="font-size:30px; font-style: oblique;  color: #0069d9;"> Profile</legend>
+                <div class="card-header">
                     <img src="../../resources/avatar.jpg" width="130" height="130" alt="avatar"/><br>
-                    <h9 style="font-size:25px; font-style: oblique; color: #0069d9;"><span>*</span>${client.user.userName}</h9><br>
-                    <h8 style="font-size:15px; font-style: oblique; color: #0069d9;"><span>*</span>${client.user.emailAddress}</h8>
+                    <h9 style="font-size:25px; font-style: oblique; color: #0069d9;"><span>*</span>${user.user.userName}</h9><br>
+                    <h8 style="font-size:15px; font-style: oblique; color: #0069d9;"><span>*</span>${user.user.emailAddress}</h8>
 
                 </div>
                 <div class="class-body">
@@ -59,6 +61,7 @@
                         <td><a href="/client/profile/edit" class="btn btn-sm btn-primary" >Edit Profile</a></td>
                     </div>
                 </div>
+                </fieldset>
             </div>
         </div>
     </body>

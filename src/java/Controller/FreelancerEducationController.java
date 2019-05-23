@@ -55,17 +55,15 @@ public class FreelancerEducationController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        Freelancer user = (Freelancer) request.getAttribute("user");
         Education e = new Education();
         e.setCountry(request.getParameter("country"));
         e.setDegree(request.getParameter("degree"));
         e.setStartYear(request.getParameter("startYear"));
         e.setEndYear(request.getParameter("endYear"));
-
+        e.setF(user);
         ef.create(e);
-        Freelancer f = new Freelancer();
-        facade.create(f);
-        
+
         response.sendRedirect("/freelancer/profile/view");
     }
 

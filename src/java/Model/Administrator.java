@@ -19,7 +19,7 @@ import javax.persistence.OneToOne;
  * @author GraceTina
  */
 @Entity
-public class Admin implements Serializable{
+public class Administrator  implements Serializable{
     
     private static final Long serialVersionUID = 1L;
     @Id
@@ -32,7 +32,7 @@ public class Admin implements Serializable{
     @JoinColumn(name = "user_id")
     private AuthUser user;
      
-    public Admin() {
+    public Administrator() {
     }
 
     public Long getAdminId() {

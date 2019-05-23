@@ -41,15 +41,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                <c:forEach items = "${items}" var="user" >
+                <c:forEach items = "${apps}" var="app" >
                     <tr>
-                        <td>${user.userId}</td>
-                        <td>${user.firstName}</td> <!-- dummy data ==> alignment purposes -->
-                        <td>${user.lastName}</td>
-                        <td>${user.userName}</td>
-                        <td>${user.emailAddress}</td>
-                        <td>${user.phoneNumber}</td>
-                        <td>${user.uType.uType}</td>
+                        <td>${app.userId}</td>
+                        <td>${app.firstName}</td> <!-- dummy data ==> alignment purposes -->
+                        <td>${app.lastName}</td>
+                        <td>${app.userName}</td>
+                        <td>${app.emailAddress}</td>
+                        <td>${app.phoneNumber}</td>
+                        <td>${app.uType.uType}</td>
                     </tr>
                 </c:forEach>
                 </tbody>

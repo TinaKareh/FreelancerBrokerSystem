@@ -11,17 +11,21 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  *
  * @author GraceTina
  */
 @Entity
-public class Verifications implements Serializable {
-    private static final Long serialVersionUID = 1L;
+public class FreelancerSkills implements Serializable{
+     private static final Long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "verify_id")
-    private Long verifyId;
-    
+    @Column(name = "skill_id")
+    private Long freeSkillId;
+    private 
+
+    @ManyToOne
+    Freelancer f;
 }

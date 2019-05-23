@@ -25,45 +25,42 @@
             <a href="/logout">Log out</a>
             <a class="active" href="/admin/profile/view">Profile</a>
             <a href="">Payment</a>
-            <a  href="/dashboard/admin">Home</a>
+            <a  href="/admin/dashboard">Home</a>
         </div>
-        <div class="profile" >
-            <div style="float: left; padding-bottom: 100px; padding-left: 430px; padding-top: 80px;">
+        <div class="" >
+            <div class="card" style="float: left; margin-top: 50px; margin-left: 200px;">
                 <fieldset>
                     <legend style="font-size:30px; font-style: oblique;  color: #0069d9;"> Profile</legend>
-                <div style=" align-content: center; padding-left:150px; padding-right: 150px;">
-                    <img src="../../resources/avatar.jpg" width="130" height="130" alt="avatar" style="margin-left: 40px;"/><br>
-                    <h9 style="font-size:30px; font-style: oblique; margin-left: 40px; color: #0069d9;"><span>*</span>${admin.user.userName}</h9><br>
-                    <h8 style="font-size:20px; font-style: oblique;  color: #0069d9;"><span>*</span>${admin.user.emailAddress}</h8>
+                    <div class="card-header">
+                        <img src="../../resources/avatar.jpg" width="130" height="130" alt="avatar" style="margin-left: 40px;"/><br>
+                        <h9 style="font-size:30px; font-style: oblique; margin-left: 40px; color: #0069d9;"><span>*</span>${user.userName}</h9><br>
+                        <h8 style="font-size:20px; font-style: oblique;  color: #0069d9;"><span>*</span>${user.emailAddress}</h8>
 
-                </div>
-                <div class="profile_table">
-                          <table>
+                    </div>
+                    <div class="class-body">
+                        <table>
                             <tr>
                                 <td><b>Full Name:</b></td>
-                                <td class="table_row">${admin.user.firstName} ${admin.user.lastName}</td>
+                                <td class="table_row">${user.firstName} ${user.lastName}</td>
                             </tr>
-                           
+
                             <tr>
                                 <td><b>User Name:</b></td>
-                                <td class="table_row">${admin.user.userName}</td>
+                                <td class="table_row">${user.userName}</td>
                             </tr>
                             <tr>
                                 <td><b>Email Address:</b></td>
-                                <td class="table_row">${admin.user.emailAddress}</td>
+                                <td class="table_row">${user.emailAddress}</td>
                             </tr>
                             <tr>
                                 <td><b>Phone Number:</b></td>
-                                <td class="table_row">${admin.user.phoneNumber}</td>
+                                <td class="table_row">${user.phoneNumber}</td>
                             </tr>
-                            
-                            <tr>
-                                <td><b>:</b></td>
-                                <td><a href="/admin/edit" class="btn btn-sm btn-primary" >Edit Profile</a></td>
-                            </tr>
-                          </table>
-                            
-                </div>
+                        </table>
+                        <div class="card-footer">
+                            <td><a href="/admin/edit/profile" class="btn btn-sm btn-primary" >Edit Profile</a></td>
+                        </div>
+                    </div>
                 </fieldset>
             </div>
         </div>

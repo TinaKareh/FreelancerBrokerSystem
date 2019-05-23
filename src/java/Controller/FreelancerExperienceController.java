@@ -55,18 +55,19 @@ public class FreelancerExperienceController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Freelancer user = (Freelancer) request.getAttribute("user");
+
         Experience e = new Experience();
         e.setTitle(request.getParameter("title"));
         e.setCompany(request.getParameter("company"));
         e.setStartYear(request.getParameter("startYear"));
         e.setEndYear(request.getParameter("endYear"));
         e.setSummary(request.getParameter("summary"));
+        e.setF(user);
         ef.create(e);
-        Freelancer f = new Freelancer();
-        facade.create(f);
-        
+
+
         response.sendRedirect("/freelancer/profile/view");
     }
 
-    
 }

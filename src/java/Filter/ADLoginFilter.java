@@ -6,7 +6,8 @@
 package Filter;
 
 import Constants.UserType;
-import Model.Admin;
+import Model.Administrator;
+import Model.AuthUser;
 import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -45,7 +46,7 @@ public class ADLoginFilter implements Filter {
         } else {
             UserType uType = (UserType) session.getAttribute("uType");
             if (uType == UserType.AD) {
-                request.setAttribute("user", (Admin) session.getAttribute("user"));
+                request.setAttribute("user", (AuthUser) session.getAttribute("user"));
                 chain.doFilter(request, response);
             } else {
                 ((HttpServletResponse) response).sendRedirect("/login");

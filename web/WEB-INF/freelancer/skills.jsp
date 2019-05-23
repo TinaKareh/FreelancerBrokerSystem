@@ -42,54 +42,63 @@
                             <div class="card-body">
                                 <i class="fa fa-product-hunt"></i>
                                 <a href="" class="btn btn-light stretched-link">Websites,IT&Software</a>
+                                <input type="hidden" name="category" value="WS">
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-body">
                                 <i class="fa fa-product-hunt"></i>
                                 <a href="" class="btn btn-light stretched-link">Mobile phones&Computing</a>
+                                <input type="hidden" name="category" value="MC">
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-body">
                                 <i class="fa fa-product-hunt"></i>
                                 <a href="" class="btn btn-light stretched-link">Writing&Content</a>
+                                <input type="hidden" name="category" value="WC">
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-body">
                                 <i class="fa fa-product-hunt"></i>
                                 <a href="" class="btn btn-light stretched-link">Design,Media&Architecture</a>
+                                <input type="hidden" name="category" value="DA">
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-body">
                                 <i class="fa fa-product-hunt"></i>
-                                <a href="" class="btn btn-light stretched-link">Data Entry&Admin</a>
+                                <a href="" class="btn btn-light stretched-link">Data Entry& Admin</a>
+                                <input type="hidden" name="category" value="DE">
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-body">
                                 <i class="fa fa-product-hunt"></i>
                                 <a href="" class="btn btn-light stretched-link">Engineering&Science</a>
+                                <input type="hidden" name="category" value="ES">
                             </div>
                         </div>
                          <div class="card">
                             <div class="card-body">
                                 <i class="fa fa-product-hunt"></i>
                                 <a href="" class="btn btn-light stretched-link">Translation&Languages</a>
+                                <input type="hidden" name="category" value="TL">
                             </div>
                         </div>
                          <div class="card">
                             <div class="card-body">
                                 <i class="fa fa-product-hunt"></i>
                                 <a href="" class="btn btn-light stretched-link">Local Jobs & Services</a>
+                                <input type="hidden" name="category" value="LJ">
                             </div>
                         </div>
                          <div class="card">
                             <div class="card-body">
                                 <i class="fa fa-product-hunt"></i>
-                                <a href="" class="btn btn-light stretched-link">Product Sourcing & Manufacturing</a>
+                                <a href="" class="btn btn-light stretched-link">Sales & Marketing</a>
+                                <input type="hidden" name="category" value="SM">
                             </div>
                         </div>
                     </div>

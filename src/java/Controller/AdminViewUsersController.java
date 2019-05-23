@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author GraceTina
  */
-@WebServlet(name = "AdminViewUsersController", urlPatterns = {"/view/users"})
+@WebServlet(name = "AdminViewUsersController", urlPatterns = {"/admin/view/users"})
 public class AdminViewUsersController extends HttpServlet {
 
     @EJB
@@ -37,7 +37,7 @@ public class AdminViewUsersController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setAttribute("items", authUserFacade.findAll());
+        request.setAttribute("apps", authUserFacade.findAll());
         
         getServletContext().getRequestDispatcher("/WEB-INF/admin/admin_dashboard.jsp").forward(request, response);
                 

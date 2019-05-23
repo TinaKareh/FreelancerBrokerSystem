@@ -8,6 +8,8 @@ package Model;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,6 +31,9 @@ public class Task implements Serializable {
     private String description;
     private int duration;
     private double rangeAmount;
+    
+      @Enumerated(EnumType.STRING)
+    private TaskStatus status;
 
     
     @ManyToOne
@@ -38,6 +43,15 @@ public class Task implements Serializable {
     public Task() {
     }
 
+    public TaskStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(TaskStatus status) {
+        this.status = status;
+    }
+
+    
     public Client getAppliedBy() {
         return appliedBy;
     }

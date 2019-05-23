@@ -4,6 +4,7 @@
     Author     : GraceTina
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -36,8 +37,8 @@
                     <legend style="font-size:30px; font-style: oblique;  color: #0069d9;"> Profile</legend>
                     <div class="card-header">
                         <img src="../../resources/avatar.jpg" width="130" height="130" alt="avatar" style="margin-left: 40px;"/><br>
-                        <h9 style="font-size:25px; font-style: oblique; color: #0069d9;"><span>*</span>${free.user.userName}</h9><br>
-                        <h8 style="font-size:15px; font-style: oblique; color: #0069d9;"><span>*</span>${free.user.emailAddress}</h8>
+                        <h9 style="font-size:25px; font-style: oblique; color: #0069d9;"><span>*</span>${user.user.userName}</h9><br>
+                        <h8 style="font-size:15px; font-style: oblique; color: #0069d9;"><span>*</span>${user.user.emailAddress}</h8>
 
                     </div>
                     <div class="card-body">
@@ -73,9 +74,7 @@
                     <div class="card" style=" ">
                         <div class="card-header"><i class="fa fa-home">Education</i></div>
                         <div class="card-body">
-                            <table>
-                                <td>Egerton University 2017-2021</td>
-                            </table>
+                            
                         </div>
                         <div class="card-footer"> 
                             <a href="/freelancer/education" class="btn btn-sm btn-primary" style="float: right;"  >+ Education</a>
@@ -84,10 +83,7 @@
                     <div class="card" style="margin-top: 50px; ">
                         <div class="card-header"><i class="fa fa-home">Experience</i></div>
                         <div class="card-body">
-                            <table>
-                                <td></td>
-                            </table>
-                        </div>
+                                                    </div>
                         <div class="card-footer"> 
                             <a href="/freelancer/experience" class="btn btn-sm btn-primary" style="float: right;" >+ Experience</a>
                         </div>

@@ -8,6 +8,8 @@ package Model;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,16 +21,19 @@ import javax.persistence.ManyToOne;
  */
 @Entity
 public class Skill implements Serializable {
+
     private static final Long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "skill_id")
     private Long skillId;
-    private String category;
     private String name;
 
-    @ManyToOne
-    Freelancer f;
+    @Enumerated(EnumType.STRING)
+    private CategoryType category;
+
+    
+
     public Skill() {
     }
 
@@ -40,13 +45,15 @@ public class Skill implements Serializable {
         this.skillId = skillId;
     }
 
-    public String getCategory() {
+    public CategoryType getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(CategoryType category) {
         this.category = category;
     }
+
+   
 
     public String getName() {
         return name;
@@ -55,6 +62,5 @@ public class Skill implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-    
-    
+
 }

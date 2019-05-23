@@ -5,7 +5,7 @@
  */
 package Controller;
 
-import Model.Admin;
+import Model.Administrator;
 import Service.AdminFacade;
 import Service.AuthUserFacade;
 import java.io.IOException;
@@ -55,7 +55,7 @@ public class AdminEditProfileController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        Admin a = (Admin)request.getSession().getAttribute("admin");
+        Administrator a = (Administrator)request.getSession().getAttribute("user");
         a.getUser().setFirstName(request.getParameter("fname"));
         a.getUser().setLastName(request.getParameter("lname"));
         a.getUser().setEmailAddress(request.getParameter("email"));
@@ -66,7 +66,7 @@ public class AdminEditProfileController extends HttpServlet {
         
         authUserFacade.edit(a.getUser());
         adminFacade.edit(a);
-         request.getSession().setAttribute("admin", a);
+         request.getSession().setAttribute("user", a);
         response.sendRedirect("/admin/profile/view");
         
     }

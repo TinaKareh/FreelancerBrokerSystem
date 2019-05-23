@@ -5,7 +5,7 @@
  */
 package Service;
 
-import Model.Admin;
+import Model.Administrator;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -15,7 +15,7 @@ import javax.persistence.PersistenceContext;
  * @author GraceTina
  */
 @Stateless
-public class AdminFacade extends AbstractFacade<Admin> {
+public class AdminFacade extends AbstractFacade<Administrator> {
 
     @PersistenceContext(unitName = "FuristicsFreelancerSystemPU")
     private EntityManager em;
@@ -26,7 +26,7 @@ public class AdminFacade extends AbstractFacade<Admin> {
     }
 
     public AdminFacade() {
-        super(Admin.class);
+        super(Administrator.class);
     }
     
 }

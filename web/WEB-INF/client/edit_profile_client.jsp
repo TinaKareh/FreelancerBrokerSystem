@@ -23,9 +23,9 @@
         <div class="toppnav">
             <a href="" class="btn btn-sm btn-lg">Help!</a>
             <a href="/logout">Log out</a>
-            <a href="/client/profile/view">Profile</a>
+            <a class="active" href="/client/profile/view">Profile</a>
             <a href="/client/payment">Payment</a>
-            <a class="active" href="/dashboard">Home</a>
+            <a  href="/dashboard">Home</a>
         </div>
         <div class="container">
             <fieldset>

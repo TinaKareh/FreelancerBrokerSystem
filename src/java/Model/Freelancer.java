@@ -34,7 +34,7 @@ public class Freelancer implements Serializable {
     private AuthUser user;
 
     @OneToMany
-    Set<Skill> skills;
+    Set<FreelancerSkills> skills;
 
     @OneToMany
     Set<Education> education;
@@ -72,13 +72,15 @@ public class Freelancer implements Serializable {
         this.user = user;
     }
 
-    public Set<Skill> getSkills() {
+    public Set<FreelancerSkills> getSkills() {
         return skills;
     }
 
-    public void setSkills(Set<Skill> skills) {
+    public void setSkills(Set<FreelancerSkills> skills) {
         this.skills = skills;
     }
+
+   
 
     public Set<Education> getEducation() {
         return education;

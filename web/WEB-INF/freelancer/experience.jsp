@@ -58,6 +58,9 @@
                                 <label for="summary">Summary</label><span style="color: #0069d9;">*</span><br>
                                 <textarea name="summary" class="form-control" type="text" ></textarea>
                             </div>
+                            <div class="form-group">
+                                 <input type="hidden" name="category" value="experience">
+                            </div>
                     </div>
                         <div>
                         <button type="submit"  class="btn btn-sm btn-primary" style=""  >Save</button>
