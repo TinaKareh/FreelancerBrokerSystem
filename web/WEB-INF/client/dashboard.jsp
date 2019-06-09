@@ -3,7 +3,7 @@
     Created on : Mar 19, 2019, 2:03:18 PM
     Author     : GraceTina
 --%>
-
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -27,40 +27,38 @@
             <a href="/client/profile/view">Profile</a>
             <a href="/client/payment">Payment</a>
             <a href="/client/add/task">Post a Job</a>
-            <a class="active" href="/dashboard">Home</a>
+            <a class="active" href="/dashboard">Dashboard</a>
         </div>
         <div class="container">
-          <div style="margin-top: 50px; float: left;">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th style="color: #0069d9; font-style: oblique;">Task ID</th>
-                        <th style="color: #0069d9; font-style: oblique;">Category</th>
-                        <th style="color: #0069d9; font-style: oblique;">Duration</th>
-                        <th style="color: #0069d9; font-style: oblique;">Price</th>
-                        <th style="color: #0069d9; font-style: oblique;">Description</th>
-                        <th style="color: #0069d9; font-style: oblique;">Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <c:forEach items = "${items}" var="item" >
-                    <tr>
-                        <td>${item.taskId}</td>
-                        <td>${item.category}</td> <!-- dummy data ==> alignment purposes -->
-                        <td>${item.duration}</td>
-                        <td>${item.rangeAmount}</td>
-                        <td>${item.description}</td>
-                        <td>${item.status.status}</td>
-                    </tr>
-                </c:forEach>
-                </tbody>
-            </table>
-        </div>
-            <div style="float: right;">
-                <fieldset>
-                    <img src="../../resources/letter-f-logo-vector-4957605_1.jpg" width="300" height="600" alt="letter-f-logo-vector-4957605_1" style="margin-top: 50px;"/>
-                </fieldset>
+            <div style="margin-top: 50px; float: left;">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th style="color: #0069d9; font-style: oblique;">Task ID</th>
+                            <th style="color: #0069d9; font-style: oblique;">Category</th>
+                            <th style="color: #0069d9; font-style: oblique;">Duration</th>
+                            <th style="color: #0069d9; font-style: oblique;">Price</th>
+                            <th style="color: #0069d9; font-style: oblique;">Description</th>
+                            <th style="color: #0069d9; font-style: oblique;">Client Name</th>
+                            <th style="color: #0069d9; font-style: oblique;">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <c:forEach items = "${tasks}" var="task" >
+                            <tr>
+                                <td>${task.taskId}</td>
+                                <td>${task.category}</td> <!-- dummy data ==> alignment purposes -->
+                                <td>${task.duration}</td>
+                                <td>${task.rangeAmount}</td>
+                                <td>${task.description}</td>
+                                <td>${task.appliedBy.user.firstName}${task.appliedBy.user.lastName}</td>
+                                <td>${task.status.status}</td>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+                </table>
             </div>
+          
         </div>
         <div class="footer2">
             <fieldset>

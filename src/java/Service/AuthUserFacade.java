@@ -6,6 +6,7 @@
 package Service;
 
 import Model.AuthUser;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -31,19 +32,25 @@ public class AuthUserFacade extends AbstractFacade<AuthUser> {
     }
 
     public AuthUser getUserByEmailAddressAndPassword(String emailAddress, String password) {
-       String jpql = "select a from AuthUser a where a.emailAddress = :email and a.password = :password";
+        String jpql = "select a from AuthUser a where a.emailAddress = :email and a.password = :password";
         Query query = getEntityManager().createQuery(jpql);
         query.setParameter("email", emailAddress);
         query.setParameter("password", password);
-        
+
         //AuthUser au = null;
         try {
             return (AuthUser) query.getSingleResult();
-        } catch(Exception x) {
+        } catch (Exception x) {
             return null;
         }
     }
 
+    /*@Override
+    public List<AuthUser> findAll() {
+        String jpql ="select a from AuthUser";
+        Query query = getEntityManager().createQuery(jpql);
+        return query.getResultList();
+    }*/
     
-    
+
 }

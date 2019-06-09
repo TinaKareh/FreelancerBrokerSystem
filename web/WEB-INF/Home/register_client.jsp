@@ -14,6 +14,22 @@
         <link rel="stylesheet" type="text/css" media="screen" href="${pageContext.request.contextPath}/resources/css/form.css">
         <script src="${pageContext.request.contextPath}/resources/form.js"></script>
         <title>Register | Client</title>
+        <script type="text/javascript">
+            function matchpass() {
+                var firstPass = document.forms["myForm"]["password"].value;
+                var secondPass = document.forms["myForm"]["confirmPass"].value;
+
+                if (firstPass == secondPass) {
+                    return true;
+                } else if{
+                    alert("password must be same!");
+                    return false;
+                }else (firstPass.length < 8) {
+                    alert("Password must be at least 8 characters long");
+                    return false;
+            }
+        }
+        </script>
     </head>
     <body>
         <div>
@@ -28,7 +44,7 @@
         <div class="container">
             <fieldset>
                 <h2 style="font-size:14px; color: #000;">'*' indicates required fields</h2>
-                <form method="POST" action="" class="myForm" onsubmit="return matchpass()">
+                <form method="POST" action="" name="myForm" onsubmit="return matchpass()">
                     <div class="top_nav" >
                         <div class="form-group">
                             <label for="fname">First Name</label><span style="color: #0069d9;">*</span><br>
@@ -50,7 +66,7 @@
                     <div class="topnav"  >
                         <div class="form-group">
                             <label for="phoneNo">Phone Number</label><span style="color: #0069d9;">*</span><br>
-                            <input name="phoneNo" class="form-control" type="text" style="width: 150%;" id="phoneNo" required="">
+                            <input name="phoneNo" class="form-control" type="tel" style="width: 150%;" id="phoneNo" required="">
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label><span style="color: #0069d9;">*</span><br>

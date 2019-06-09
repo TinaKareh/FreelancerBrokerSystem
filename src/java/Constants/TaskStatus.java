@@ -15,17 +15,17 @@ public enum TaskStatus {
     CL("CLOSED"),
     CP("COMPLETE");
     
-    private final String taskStatus;
+    private final String status;
     
-    private TaskStatus(String taskStatus){
-        this.taskStatus = taskStatus;
+    private TaskStatus(String status){
+        this.status = status;
     }
 public String getTaskStatus() {
-        if (taskStatus == "B")
+        if (status == "BD")
             return "BIDDING";
-        else if(taskStatus == "I")
+        else if(status == "IP")
             return "IN PROGRESS";
-        else if(taskStatus =="C")
+        else if(status =="CL")
             return "CLOSED";
         else
             return "COMPLETE";
@@ -33,7 +33,7 @@ public String getTaskStatus() {
     
     @Override
     public String toString() {
-        return this.taskStatus;
+        return this.status;
     }
     
     

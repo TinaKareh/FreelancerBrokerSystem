@@ -37,7 +37,7 @@
                         <div class="card-header"><i class="fa fa-home">Education</i></div>
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="country">Country</label><span style="color: #0069d9;">*</span><br>
+                                <label for="country">University</label><span style="color: #0069d9;">*</span><br>
                                 <input name="country" class="form-control" type="text" id="country"value="" required="">
                             </div>
                             <div class="form-group">

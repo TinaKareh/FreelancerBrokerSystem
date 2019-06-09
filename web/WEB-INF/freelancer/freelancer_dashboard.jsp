@@ -4,6 +4,7 @@
     Author     : GraceTina
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -36,44 +37,39 @@
                 <h2 style="font-size: 16px; font-style: oblique; color: #000; margin-top: 20px;">To bid on a task click on the bid button on each task*</h2>
                 <div class="task" style="float: left; margin-top: 20px;">
                     <fieldset>
-                        <form action="">
-                            <table>
-                                <tr>
-                                    <td align="left" style="color: #000;"><b>Task ID:</b></td>
-                                    <td>${task.taskId}</td>
-                                </tr>
-                                <tr>
-                                    <td align="left" style="color: #000;"><b>Category:</b></td>
-                                    <td>${task.category}</td>
-                                </tr>
-                                <tr>
-                                    <td align="left" style="color: #000;"><b>Duration:</b></td>
-                                    <td>${task.duration}</td>
-                                </tr>
-                                <tr>
-                                    <td align="left" style="color: #000;"><b>Price Range:</b></td>
-                                    <td>${task.rangeAmount} </td>
-                                </tr>
-                                <tr>
-                                    <td align="left" style="color: #000;"><b>Description:</b></td>
-                                    <td>${task.description}</td>
-                                </tr>
-                                <tr>
-                                    <td style="color: #000;">:</td>
-                                    <td><a href="/add/bids" style="margin-bottom: 5px;" class="btn btn-primary btn-sm">Add Bid</a>
-                                    </td>
-                                </tr>
-                            </table>
+                        <form action="" method="GET">
+                            <c:forEach items="${tasks}" var="task">
+                                <div class="form-group">
+                                    <label style="color: #000;">Category:</label>
+                                    <p>${task.category}</p>
+                                </div>
+                                <div class="form-group">
+                                    <label style="color: #000;">Duration:</label>
+                                    <p>${task.duration}</p>
+                                </div>
+                                <div class="form-group">
+                                    <label style="color: #000;">Price Range:</label>
+                                    <p>${task.rangeAmount}</p>
+                                </div>
+                                 <div class="form-group">
+                                    <label style="color: #000;">Description:</label>
+                                    <p>${task.description}</</p>
+                                </div>
+                                 <div class="form-group">
+                                    <label style="color: #000;">Bid:</label>
+                                <a href="/add/bids" style="margin-bottom: 5px;" class="btn btn-primary btn-sm">Add Bid</a>
+                                </div>
+                            </c:forEach>
                         </form>
                     </fieldset>
                 </div>
                 <div style="float: right;">
                     <fieldset>
-                        <img src="../../resources/letter-f-logo-vector-4957605_1.jpg" width="300" height="600" alt="letter-f-logo-vector-4957605_1" style="margin-top: 20px; opacity: 0.3; filter: alpha(opacity=30); "/>
+                        <img src="../../resources/letter-f-logo-vector-4957605_1.jpg" width="300" height="600" alt="letter-f-logo-vector-4957605_1" style="margin-top: 20px;"/>
                     </fieldset>
                 </div>
                 <div>
-                    
+
                 </div>
             </div>
         </div>

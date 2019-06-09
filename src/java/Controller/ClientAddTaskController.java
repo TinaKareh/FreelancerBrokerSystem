@@ -7,10 +7,15 @@ package Controller;
 
 import Model.Client;
 import Model.Task;
+import Model.TaskSkill;
 import Model.TaskStatus;
+import Service.SkillFacade;
 import Service.TaskFacade;
+import Service.TaskSkillFacade;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,8 +29,12 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "ClientAddTaskController", urlPatterns = {"/client/add/task"})
 public class ClientAddTaskController extends HttpServlet {
 
+    @EJB
     private TaskFacade facade;
-   
+   @EJB
+   private SkillFacade skillFacade;
+   @EJB
+   private TaskSkillFacade tsf;
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -38,6 +47,8 @@ public class ClientAddTaskController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        List skills = skillFacade.findAll();
+        request.setAttribute("skills", skills);
         getServletContext().getRequestDispatcher("/WEB-INF/client/post_task.jsp").forward(request, response);
     }
 
@@ -61,7 +72,15 @@ public class ClientAddTaskController extends HttpServlet {
         task.setStatus(TaskStatus.BD);
         task.setAppliedBy(user);
         
-        facade.create(task);
+        task = facade.createAndReturn(task);
+        for(String val: request.getParameterValues("skill")){
+           TaskSkill  tskill = new TaskSkill();
+            tskill.setTask(task);
+            tskill.setSkill(skillFacade.find(Long.parseLong(val.replace("", ""))));
+            tsf.create(tskill);
+                   // LOG.log(Level.INFO, val);
+
+        }
         response.sendRedirect("/dashboard");
         
     }

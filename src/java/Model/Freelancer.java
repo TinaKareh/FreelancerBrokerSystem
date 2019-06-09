@@ -6,9 +6,11 @@
 package Model;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -34,13 +36,13 @@ public class Freelancer implements Serializable {
     private AuthUser user;
 
     @OneToMany
-    Set<FreelancerSkills> skills;
+    private List<FreelancerSkills> skills;
 
-    @OneToMany
-    Set<Education> education;
+    @OneToMany(fetch = FetchType.LAZY)
+    private Set<Education> education;
 
-    @OneToMany
-    Set<Experience> experience;
+    @OneToMany(fetch = FetchType.LAZY)
+    private Set<Experience> experience;
 
     @OneToMany(mappedBy = "appliedBy")
     private Set<Bid> bid;
@@ -72,15 +74,13 @@ public class Freelancer implements Serializable {
         this.user = user;
     }
 
-    public Set<FreelancerSkills> getSkills() {
+    public List<FreelancerSkills> getSkills() {
         return skills;
     }
 
-    public void setSkills(Set<FreelancerSkills> skills) {
+    public void setSkills(List<FreelancerSkills> skills) {
         this.skills = skills;
     }
-
-   
 
     public Set<Education> getEducation() {
         return education;
@@ -96,6 +96,11 @@ public class Freelancer implements Serializable {
 
     public void setExperience(Set<Experience> experience) {
         this.experience = experience;
+    }
+
+    @Override
+    public String toString() {
+        return "Freelancer{" + "freelancerId=" + freelancerId + '}';
     }
 
 }

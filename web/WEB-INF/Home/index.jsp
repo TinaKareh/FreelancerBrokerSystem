@@ -14,7 +14,7 @@
         <script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" media="screen" href="${pageContext.request.contextPath}/resources/css/index.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="${pageContext.request.contextPath}/resources/fontawesome/css/fontawesome.min.css"
-        <link rel="stylesheet" type="text/css" media="screen" href="${pageContext.request.contextPath}/resources/css/form.css" />
+              <link rel="stylesheet" type="text/css" media="screen" href="${pageContext.request.contextPath}/resources/css/form.css" />
         <script src="${pageContext.request.contextPath}/resources/css/form.js"></script>
         <script  src="${pageContext.request.contextPath}/resources/js/image.js"></script>
         <title>Furistics | Home</title>
@@ -45,12 +45,28 @@
                 x[myIndex - 1].style.display = "block";
                 setTimeout(carousel, 5000); // Change image every 5 seconds
             }
+
+        </script>
+        <script type="text/javascript">
+            function validateform() {
+                var email = document.forms["myLogin"]["email"].value;
+                var password = document.forms["myLogin"]["password"].value;
+
+                if (email == null || email == "") {
+                    alert("Email can't be blank");
+                    return false;
+                } else if (password.length < 8) {
+                    alert("Password must be at least 8 characters long");
+                    return false;
+                }
+            }
+
         </script>
         <div class="container" style="float: top;">
             <div class="login">
                 <fieldset>
                     <legend style="margin-bottom: 40px; font-size: 30px; font-weight: 600;  color: #0069d9;">Log In</legend>
-                    <form action="/login" method="POST" class="myLogin" onsubmit="return validateform()">
+                    <form action="/login" method="POST" name="myLogin" onsubmit="return validateform()">
                         <div class="form-group">
                             <label for="email">Email Address</label><span style="color: #0069d9;">*</span><br>
                             <input name="email" class="form-control" type="email" id="email" style="width: 150%;" placeholder="Enter Email Address" required="">

@@ -24,6 +24,7 @@
             <a href="/logout">Log out</a>
             <a  class="active"href="/admin/profile/view">Profile</a>
             <a href="">Payment</a>
+            <a href="">Reports</a>
             <a  href="/admin/dashboard">Home</a>
         </div>
         <div class="container">

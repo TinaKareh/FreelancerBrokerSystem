@@ -3,7 +3,7 @@
     Created on : Mar 19, 2019, 2:03:47 PM
     Author     : GraceTina
 --%>
-
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -25,6 +25,7 @@
             <a href="/logout">Log out</a>
             <a href="/admin/profile/view">Profile</a>
             <a href="">Payment</a>
+            <a href="">Reports</a>
             <a class="active" href="/dashboard/admin">Home</a>
         </div>
         <div style="margin-top: 50px;">
@@ -41,15 +42,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                <c:forEach items = "${apps}" var="app" >
+                <c:forEach items = "${persons}" var="person" >
                     <tr>
-                        <td>${app.userId}</td>
-                        <td>${app.firstName}</td> <!-- dummy data ==> alignment purposes -->
-                        <td>${app.lastName}</td>
-                        <td>${app.userName}</td>
-                        <td>${app.emailAddress}</td>
-                        <td>${app.phoneNumber}</td>
-                        <td>${app.uType.uType}</td>
+                        <td>${person.userId}</td>
+                        <td>${person.firstName}</td> <!-- dummy data ==> alignment purposes -->
+                        <td>${person.lastName}</td>
+                        <td>${person.userName}</td>
+                        <td>${person.emailAddress}</td>
+                        <td>${person.phoneNumber}</td>
+                        <td>${person.uType.uType}</td>
                     </tr>
                 </c:forEach>
                 </tbody>

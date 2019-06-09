@@ -8,10 +8,14 @@ package Model;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 /**
  *
@@ -19,7 +23,8 @@ import javax.persistence.ManyToOne;
  */
 @Entity
 public class Education implements Serializable {
-        private static final Long serialVersionUID = 1L;
+
+    private static final Long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "education_id")
@@ -29,9 +34,11 @@ public class Education implements Serializable {
     private String startYear;
     private String endYear;
 
-    @ManyToOne
-    Freelancer f;
-    
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "freelancer_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Freelancer f;
+
     public Education() {
     }
 
@@ -43,7 +50,6 @@ public class Education implements Serializable {
         this.f = f;
     }
 
-    
     public Long getEducationId() {
         return educationId;
     }
@@ -83,6 +89,5 @@ public class Education implements Serializable {
     public void setEndYear(String endYear) {
         this.endYear = endYear;
     }
-    
-    
+
 }

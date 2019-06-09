@@ -15,6 +15,8 @@
         <script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" media="screen" href="${pageContext.request.contextPath}/resources/css/index.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" media="screen" href="${pageContext.request.contextPath}/resources/css/form.css" />
         <title>Freelancer | Profile</title>
     </head>
@@ -74,7 +76,10 @@
                     <div class="card" style=" ">
                         <div class="card-header"><i class="fa fa-home">Education</i></div>
                         <div class="card-body">
-                            
+                            <table class="table">
+                                    <h1>${user.degree}</h1>
+                                    <p>${user.country} ${user.startYear}-${user.endYear}</p>
+                            </table>
                         </div>
                         <div class="card-footer"> 
                             <a href="/freelancer/education" class="btn btn-sm btn-primary" style="float: right;"  >+ Education</a>
@@ -83,7 +88,12 @@
                     <div class="card" style="margin-top: 50px; ">
                         <div class="card-header"><i class="fa fa-home">Experience</i></div>
                         <div class="card-body">
-                                                    </div>
+                            <table class="table">
+                                    <h1>${user.title}</h1>
+                                    <p>${user.company} ${user.startYear}-${user.endYear}</p>
+                                    <p>${user.summary}</p>
+                            </table> 
+                        </div>
                         <div class="card-footer"> 
                             <a href="/freelancer/experience" class="btn btn-sm btn-primary" style="float: right;" >+ Experience</a>
                         </div>
@@ -94,9 +104,6 @@
                             <table>
                                 <td></td>
                             </table>
-                        </div>
-                        <div class="card-footer"> 
-                            <a href="/freelancer/add/skills" class="btn btn-sm btn-primary" style="float: right;" >+Skills</a>
                         </div>
                     </div>
                 </fieldset>

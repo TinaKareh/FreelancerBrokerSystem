@@ -5,20 +5,17 @@
  */
 package Service;
 
-import Model.Education;
-import Model.Freelancer;
-import java.util.List;
+import Model.FreelancerSkills;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 
 /**
  *
  * @author GraceTina
  */
 @Stateless
-public class EducationFacade extends AbstractFacade<Education> {
+public class FreelancerSkillsFacade extends AbstractFacade<FreelancerSkills> {
 
     @PersistenceContext(unitName = "FuristicsFreelancerSystemPU")
     private EntityManager em;
@@ -28,8 +25,8 @@ public class EducationFacade extends AbstractFacade<Education> {
         return em;
     }
 
-    public EducationFacade() {
-        super(Education.class);
+    public FreelancerSkillsFacade() {
+        super(FreelancerSkills.class);
     }
- 
+    
 }

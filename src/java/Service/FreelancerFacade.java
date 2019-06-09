@@ -10,11 +10,13 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 
 /**
  *
  * @author GraceTina
  */
+
 @Stateless
 public class FreelancerFacade extends AbstractFacade<Freelancer> {
 
@@ -29,7 +31,7 @@ public class FreelancerFacade extends AbstractFacade<Freelancer> {
     public FreelancerFacade() {
         super(Freelancer.class);
     }
-
+  @Transactional
     public Freelancer findByUserId(Long userId) {
         Query q = getEntityManager().createQuery("select f from Freelancer f where f.user.userId = :id");
         q.setParameter("id", userId);

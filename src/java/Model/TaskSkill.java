@@ -18,46 +18,45 @@ import javax.persistence.ManyToOne;
  * @author GraceTina
  */
 @Entity
-public class FreelancerSkills implements Serializable{
-     private static final Long serialVersionUID = 1L;
+public class TaskSkill implements Serializable {
+
+    private static final Long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "skill_id")
-    private Long freeSkillId;
+    private Long taskSkillId;
 
     @ManyToOne
-    private Freelancer f;
-    
+    private Skill skill;
+
     @ManyToOne
-    private Skill s;
+    private Task task;
 
-    public FreelancerSkills() {
-        
+    public TaskSkill() {
     }
 
-    public Skill getS() {
-        return s;
+    public Task getTask() {
+        return task;
     }
 
-    public void setS(Skill s) {
-        this.s = s;
+    public void setTask(Task task) {
+        this.task = task;
     }
 
-    public Long getFreeSkillId() {
-        return freeSkillId;
+    public Long getTaskSkillId() {
+        return taskSkillId;
     }
 
-    public void setFreeSkillId(Long freeSkillId) {
-        this.freeSkillId = freeSkillId;
+    public void setTaskSkillId(Long taskSkillId) {
+        this.taskSkillId = taskSkillId;
     }
 
-    public Freelancer getF() {
-        return f;
+    public Skill getSkill() {
+        return skill;
     }
 
-    public void setF(Freelancer f) {
-        this.f = f;
+    public void setSkill(Skill skill) {
+        this.skill = skill;
     }
-    
-    
+
 }

@@ -5,8 +5,11 @@
  */
 package Service;
 
-import Model.Client;
+import Model.FreelancerSkills;
+import Model.Skill;
 import Model.Task;
+import Model.TaskSkill;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -18,7 +21,7 @@ import javax.persistence.Query;
  * @author GraceTina
  */
 @Stateless
-public class TaskFacade extends AbstractFacade<Task> {
+public class TaskSkillFacade extends AbstractFacade<TaskSkill> {
 
     @PersistenceContext(unitName = "FuristicsFreelancerSystemPU")
     private EntityManager em;
@@ -28,16 +31,19 @@ public class TaskFacade extends AbstractFacade<Task> {
         return em;
     }
 
-    public TaskFacade() {
-        super(Task.class);
+    public TaskSkillFacade() {
+        super(TaskSkill.class);
     }
 
-    /*public List<Task> findByClientId(Client appliedBy) {
-        String jpql = "select a from Task a where a.appliedBy = :clientId";
+    public List<Task> relevantTasks(List<FreelancerSkills> fSkills) {
+        List<Skill> skills = new ArrayList<>();
+        fSkills.forEach(fSkill -> skills.add(fSkill.getS()));
+        String jpql = "select ts.task from TaskSkill ts where ts.skill in :skills";
         Query query = getEntityManager().createQuery(jpql);
-        query.setParameter("clientId", appliedBy);
-        return query.getResultList();
+        query.setParameter("skills", skills);
 
-    }*/
+        return (List<Task>) query.getResultList();
+
+    }
 
 }

@@ -5,8 +5,10 @@
  */
 package Controller;
 
-import Model.Skill;
-import Service.SkillFacade;
+import Model.Freelancer;
+import Model.FreelancerSkills;
+import Service.FreelancerFacade;
+import Service.FreelancerSkillsFacade;
 import java.io.IOException;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -23,8 +25,9 @@ import javax.servlet.http.HttpServletResponse;
 public class FreelancerAddSkillsController extends HttpServlet {
 
     @EJB
-    private SkillFacade facade;
-   
+    private FreelancerFacade facade;
+    @EJB
+    private FreelancerSkillsFacade skillsFacade;
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -51,12 +54,13 @@ public class FreelancerAddSkillsController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Skill skill = new Skill();
-        skill = facade.findSkillByCategory(skill.getCategory());
-        String category = request.getParameter("category");
-          
 
+        Freelancer user = (Freelancer) request.getAttribute("user");
+        FreelancerSkills freelancer = new FreelancerSkills();
+        freelancer.setF(user);
+        skillsFacade.create(freelancer);
 
-    
+        response.sendRedirect("/freelancer/profile/view");
+
     }
 }

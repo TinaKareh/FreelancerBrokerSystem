@@ -27,6 +27,7 @@ and open the template in the editor.
 .list-tina{
     color: #fff;
     list-style-type: none;
+   
 }
 .footer2{
     background-color: #333;
@@ -77,12 +78,10 @@ and open the template in the editor.
     display: none;
     position: fixed;
     bottom: 0;
-    right: 15px;
     border: 3px solid #f1f1f1;
     z-index: 9;
 }
 form-container{
-    max-width: 300px;
-    padding: 10px;
+    max-width: 700px;
     background-color: white;
 }

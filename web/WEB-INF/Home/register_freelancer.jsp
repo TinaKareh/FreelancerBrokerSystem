@@ -4,6 +4,7 @@
     Author     : GraceTina
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,6 +15,24 @@
         <script src="${pageContext.request.contextPath}/resources/form.js"></script>
         <link rel="stylesheet" type="text/css" media="screen" href="${pageContext.request.contextPath}/resources/css/form.css">
         <title>Register | Freelancer</title>
+        <script type="text/javascript">
+            
+            function matchpass() {
+                var firstPass = document.forms["myForm"]["password"].value;
+                var secondPass = document.forms["myForm"]["confirmPass"].value;
+
+                if (firstPass == secondPass) {
+                    return true;
+                } else if{
+                    alert("password must be same!");
+                    return false;
+                } 
+                else(firstPass.length < 8) {
+                    alert("Password must be at least 8 characters long");
+                    return false;
+            }
+        }
+        </script>
     </head>
     <body>
         <div>
@@ -30,7 +49,7 @@
                 <fieldset>
                     <h2 style="font-size:14px; color: #000;">'*' indicates required fields</h2>
 
-                    <form method="POST" action="" class="myForm" onsubmit="return matchpass()">
+                    <form method="POST" action="" name="myForm" onsubmit="return matchpass()">
                         <div class="form-group">
                             <label for="fname">First Name</label><span style="color: #0069d9;">*</span><br>
                             <input name="fname" class="form-control" type="text" style="width: 200%;" id="fname" required="">
@@ -47,26 +66,32 @@
                             <label for="email">Email Address</label><span style="color: #0069d9;">*</span><br>
                             <input name="email" class="form-control" type="email" style="width: 200%;" id="email" required="">
                         </div>
+                        <div class="form-group">
+                            <label for="phoneNo">Phone Number</label><span style="color: #0069d9;">*</span><br>
+                            <input name="phoneNo" class="form-control" type="tel" style="width: 200%;" id="phoneNo" required="">
+                        </div>
                 </fieldset>
             </div>
             <div class="topnav">
                 <fieldset>
-                     <div class="form-group">
-                            <label for="phoneNo">Phone Number</label><span style="color: #0069d9;">*</span><br>
-                            <input name="phoneNo" class="form-control" type="text" style="width: 200%;" id="phoneNo" required="">
-                        </div>
+
                     <div class="form-group">
                         <label for="password">Password</label><span style="color: #0069d9;">*</span><br>
-                        <input name="password" class="form-control" type="password" style="width: 200%;" id="password" required="">
+                        <input name="password" class="form-control" type="password" style="width: 190%;" id="password" required="">
                     </div>
                     <div class="form-group">
                         <label for="confirmPass">Confirm Password</label><span style="color: #0069d9;">*</span><br>
-                        <input name="confirmPass" class="form-control" type="password" style="width: 200%;" id="confirmPass" required="">
+                        <input name="confirmPass" class="form-control" type="password" style="width: 190%;" id="confirmPass" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="skill">Select your skills</label><span style="color: #0069d9;">*</span><br>
+                        <select multiple name="skill" class="form-control"  style="width: 190%;"><c:forEach items="${skills}" var="skill">
+                                <option value="${skill.skillId}">${skill.name}</option>
+                            </c:forEach></select>
                     </div>
 
-                   
                     <div class="form-group">
-                        <button class="btn btn-primary btn-sm" style="width: 200%; margin-top: 60px;" type="submit">Submit</button>
+                        <button class="btn btn-primary btn-sm" style="width: 190%; margin-top: 60px;" type="submit">Submit</button>
                     </div>
                     </form>
                 </fieldset>

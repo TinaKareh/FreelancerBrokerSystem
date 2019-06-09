@@ -5,12 +5,10 @@
  */
 package Service;
 
-import Model.CategoryType;
 import Model.Skill;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 
 /**
  *
@@ -29,19 +27,6 @@ public class SkillFacade extends AbstractFacade<Skill> {
 
     public SkillFacade() {
         super(Skill.class);
-    }
-
-    public Skill findSkillByCategory(CategoryType category) {
-        String jpql = "select a from Skill a where a.category = :category ";
-        Query query = getEntityManager().createQuery(jpql);
-        query.setParameter("category", category);
-        
-        //AuthUser au = null;
-        try {
-            return (Skill) query.getSingleResult();
-        } catch(Exception x) {
-            return null;
-        }
     }
     
 }

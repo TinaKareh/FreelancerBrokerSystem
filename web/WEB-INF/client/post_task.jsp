@@ -4,6 +4,7 @@
     Author     : GraceTina
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -27,17 +28,17 @@
             <a href="/client/profile/view">Profile</a>
             <a href="/client/payment">Payment</a>
             <a class="active" href="/client/add/task">Post a Job</a>
-            <a  href="/dashboard">Home</a>
+            <a  href="/dashboard">Dashboard</a>
         </div>
         <div class="container">
             <fieldset>
                 <div class="card" style="margin-top: 50px;">
                     <form method="POST" action="">
-                        <div class="card-header"><i class="fa fa-home">Task</i></div>
+                        <div class="card-header"><i class="fa fa-home">Post Task</i></div>
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="category">Category</label><span style="color: #0069d9">*</span><br>
-                                <select name="category" >
+                                <label for="category" >Category</label><span style="color: #0069d9">*</span><br>
+                                <select name="category" class="form-control" >
                                     <option>Websites,IT &Software</option>
                                     <option>Mobile phones&Computing</option>
                                     <option>Writing&Content</option>
@@ -50,6 +51,13 @@
                                 </select>
                             </div>
                             <div class="form-group">
+                                <label for="skill">Skills</label><span style="color: #0069d9">*</span>
+                                <select  multiple name="skill" class="form-control"><c:forEach items="${skills}" var="skill">
+                                        <option value="${skill.skillId}">${skill.name}</option>
+                                    </c:forEach>
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label for="duration">Duration</label><span style="color: #0069d9">(days)*</span><br>
                                 <input name="duration" class="form-control" type="text" id="duration"  required="">
                             </div>
@@ -59,7 +67,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="desc">Description</label><span style="color: #0069d9">*</span><br>
-                                <textarea name="desc"  class="form-control" id="desc"  required=""></textarea>
+                                <textarea name="desc"  class="form-control" id="desc" rows="5" cols="5" required=""></textarea>
                             </div>
                             <div class="card-footer"> 
                                 <div class="form-group">

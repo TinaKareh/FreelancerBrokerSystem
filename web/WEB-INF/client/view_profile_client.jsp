@@ -26,7 +26,7 @@
             <a href="/logout">Log out</a>
             <a class="active" href="/client/profile/view">Profile</a>
             <a href="/client/payment">Payment</a>
-            <a  href="/dashboard">Home</a>
+            <a  href="/dashboard">Dashboard</a>
         </div>
         <div class="" >
             <div class="card" style="float: left; margin-top: 50px; margin-left: 200px;">

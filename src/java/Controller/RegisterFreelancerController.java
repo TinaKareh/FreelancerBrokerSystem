@@ -8,9 +8,13 @@ package Controller;
 import Constants.UserType;
 import Model.AuthUser;
 import Model.Freelancer;
+import Model.FreelancerSkills;
 import Service.AuthUserFacade;
 import Service.FreelancerFacade;
+import Service.FreelancerSkillsFacade;
+import Service.SkillFacade;
 import java.io.IOException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.EJB;
@@ -31,6 +35,10 @@ public class RegisterFreelancerController extends HttpServlet {
     private FreelancerFacade facade;
     @EJB
     private AuthUserFacade auf;
+    @EJB
+    private SkillFacade skillFacade;
+    @EJB
+    private FreelancerSkillsFacade skillsFacade;
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -43,6 +51,8 @@ public class RegisterFreelancerController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        List skills = skillFacade.findAll();
+        request.setAttribute("skills", skills);
         getServletContext()
                 .getRequestDispatcher("/WEB-INF/Home/register_freelancer.jsp")
                 .forward(request, response);
@@ -69,13 +79,21 @@ public class RegisterFreelancerController extends HttpServlet {
         user.setConfirmPass(request.getParameter("confirmPass"));
         user.setuType(UserType.FR);
 
-        auf.create(user);
-        user = auf.getUserByEmailAddressAndPassword(user.getEmailAddress(), user.getPassword());
+        
+        user = auf.createAndReturn(user);
+        //user = auf.getUserByEmailAddressAndPassword(user.getEmailAddress(), user.getPassword());
         Freelancer f = new Freelancer();
         f.setUser(user);
-        facade.create(f);
-        
-        LOG.log(Level.INFO, user.toString());
+        f=facade.createAndReturn(f);
+        //LOG.log(Level.INFO,f.toString());
+        for(String val: request.getParameterValues("skill")){
+            FreelancerSkills fskill = new FreelancerSkills();
+            fskill.setF(f);
+            fskill.setS(skillFacade.find(Long.parseLong(val.replace("", ""))));
+            skillsFacade.create(fskill);
+                   // LOG.log(Level.INFO, val);
+
+        }
         response.sendRedirect("/");
         
     }
