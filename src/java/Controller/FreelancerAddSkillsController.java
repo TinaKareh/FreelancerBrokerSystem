@@ -6,9 +6,9 @@
 package Controller;
 
 import Model.Freelancer;
-import Model.FreelancerSkills;
+import Model.FreelancerSkill;
 import Service.FreelancerFacade;
-import Service.FreelancerSkillsFacade;
+import Service.FreelancerSkillFacade;
 import java.io.IOException;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -27,7 +27,7 @@ public class FreelancerAddSkillsController extends HttpServlet {
     @EJB
     private FreelancerFacade facade;
     @EJB
-    private FreelancerSkillsFacade skillsFacade;
+    private FreelancerSkillFacade skillsFacade;
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -56,7 +56,7 @@ public class FreelancerAddSkillsController extends HttpServlet {
             throws ServletException, IOException {
 
         Freelancer user = (Freelancer) request.getAttribute("user");
-        FreelancerSkills freelancer = new FreelancerSkills();
+        FreelancerSkill freelancer = new FreelancerSkill();
         freelancer.setF(user);
         skillsFacade.create(freelancer);
 

@@ -35,8 +35,8 @@ public class Freelancer implements Serializable {
     @JoinColumn(name = "user_id")
     private AuthUser user;
 
-    @OneToMany
-    private List<FreelancerSkills> skills;
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<FreelancerSkill> skills;
 
     @OneToMany(fetch = FetchType.LAZY)
     private Set<Education> education;
@@ -74,11 +74,11 @@ public class Freelancer implements Serializable {
         this.user = user;
     }
 
-    public List<FreelancerSkills> getSkills() {
+    public List<FreelancerSkill> getSkills() {
         return skills;
     }
 
-    public void setSkills(List<FreelancerSkills> skills) {
+    public void setSkills(List<FreelancerSkill> skills) {
         this.skills = skills;
     }
 

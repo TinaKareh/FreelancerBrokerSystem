@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 /**
@@ -23,13 +24,15 @@ public class TaskSkill implements Serializable {
     private static final Long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "skill_id")
+    @Column(name = "task_skill_id")
     private Long taskSkillId;
 
     @ManyToOne
+    @JoinColumn(name = "skill_id")
     private Skill skill;
 
     @ManyToOne
+    @JoinColumn(name = "task_id")
     private Task task;
 
     public TaskSkill() {

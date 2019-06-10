@@ -18,7 +18,8 @@ import javax.persistence.Id;
  */
 @Entity
 public class Skill implements Serializable {
-     private static final Long serialVersionUID = 1L;
+
+    private static final Long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "skill_id")
@@ -53,8 +54,9 @@ public class Skill implements Serializable {
         this.name = name;
     }
 
-    
-    
-    
-    
+    @Override
+    public String toString() {
+        return "Skill{" + "skillId=" + skillId + ", category=" + category + ", name=" + name + '}';
+    }
+
 }

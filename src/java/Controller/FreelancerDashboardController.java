@@ -6,7 +6,8 @@
 package Controller;
 
 import Model.Freelancer;
-import Service.TaskSkillFacade;
+import Service.FreelancerSkillFacade;
+import Service.TaskFacade;
 import java.io.IOException;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -25,7 +26,9 @@ import org.hibernate.Hibernate;
 public class FreelancerDashboardController extends HttpServlet {
 
     @EJB
-    private TaskSkillFacade taskSkillFacade;
+    private TaskFacade taskFacade;
+    @EJB
+    private FreelancerSkillFacade skillsFacade;
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -38,12 +41,15 @@ public class FreelancerDashboardController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         HttpServletRequest httpReq = (HttpServletRequest) request;
+
+        HttpServletRequest httpReq = (HttpServletRequest) request;
         HttpSession session = httpReq.getSession();
         Freelancer freelancer = (Freelancer) session.getAttribute("user");
-       // List<Task> tasks = ;
-         Hibernate.initialize(taskSkillFacade.relevantTasks(freelancer.getSkills()));
-        request.setAttribute("tasks", taskSkillFacade.relevantTasks(freelancer.getSkills()));
+        // List<Task> tasks = ;
+        // Hibernate.initialize(freelancer.getSkills());
+        request.setAttribute(
+                "tasks",
+                taskFacade.relevantTasks(skillsFacade.freelancerSkills(freelancer)));
         getServletContext()
                 .getRequestDispatcher("/WEB-INF/freelancer/freelancer_dashboard.jsp")
                 .forward(request, response);
@@ -60,8 +66,6 @@ public class FreelancerDashboardController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
-        
 
     }
 

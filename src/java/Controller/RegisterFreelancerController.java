@@ -8,10 +8,10 @@ package Controller;
 import Constants.UserType;
 import Model.AuthUser;
 import Model.Freelancer;
-import Model.FreelancerSkills;
+import Model.FreelancerSkill;
 import Service.AuthUserFacade;
 import Service.FreelancerFacade;
-import Service.FreelancerSkillsFacade;
+import Service.FreelancerSkillFacade;
 import Service.SkillFacade;
 import java.io.IOException;
 import java.util.List;
@@ -38,7 +38,7 @@ public class RegisterFreelancerController extends HttpServlet {
     @EJB
     private SkillFacade skillFacade;
     @EJB
-    private FreelancerSkillsFacade skillsFacade;
+    private FreelancerSkillFacade skillsFacade;
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -87,7 +87,7 @@ public class RegisterFreelancerController extends HttpServlet {
         f=facade.createAndReturn(f);
         //LOG.log(Level.INFO,f.toString());
         for(String val: request.getParameterValues("skill")){
-            FreelancerSkills fskill = new FreelancerSkills();
+            FreelancerSkill fskill = new FreelancerSkill();
             fskill.setF(f);
             fskill.setS(skillFacade.find(Long.parseLong(val.replace("", ""))));
             skillsFacade.create(fskill);

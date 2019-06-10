@@ -69,6 +69,7 @@ public class ClientAddTaskController extends HttpServlet {
         task.setDuration(Integer.parseInt(request.getParameter("duration")));
         task.setRangeAmount(Double.parseDouble(request.getParameter("price")));
         task.setDescription(request.getParameter("desc"));
+        task.setProjectName(request.getParameter("project"));
         task.setStatus(TaskStatus.BD);
         task.setAppliedBy(user);
         

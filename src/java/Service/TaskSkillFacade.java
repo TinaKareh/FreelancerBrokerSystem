@@ -5,7 +5,7 @@
  */
 package Service;
 
-import Model.FreelancerSkills;
+import Model.FreelancerSkill;
 import Model.Skill;
 import Model.Task;
 import Model.TaskSkill;
@@ -34,16 +34,4 @@ public class TaskSkillFacade extends AbstractFacade<TaskSkill> {
     public TaskSkillFacade() {
         super(TaskSkill.class);
     }
-
-    public List<Task> relevantTasks(List<FreelancerSkills> fSkills) {
-        List<Skill> skills = new ArrayList<>();
-        fSkills.forEach(fSkill -> skills.add(fSkill.getS()));
-        String jpql = "select ts.task from TaskSkill ts where ts.skill in :skills";
-        Query query = getEntityManager().createQuery(jpql);
-        query.setParameter("skills", skills);
-
-        return (List<Task>) query.getResultList();
-
-    }
-
 }

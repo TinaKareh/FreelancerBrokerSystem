@@ -22,6 +22,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
  */
 @Entity
 public class Task implements Serializable {
+
     private static final Long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,20 +30,30 @@ public class Task implements Serializable {
     private Long taskId;
     private String category;
     private String description;
+    private String projectName;
     private int duration;
     private double rangeAmount;
     
-      @Enumerated(EnumType.STRING)
+    @Column(length = 24, columnDefinition = "varchar(24) default 'BIDDING'")
+    @Enumerated(EnumType.STRING)
     private TaskStatus status;
 
-    
     @ManyToOne
     @PrimaryKeyJoinColumn
     private Client appliedBy;
-    
+
     public Task() {
     }
 
+    public String getProjectName() {
+        return projectName;
+    }
+
+    public void setProjectName(String projectName) {
+        this.projectName = projectName;
+    }
+
+    
     public TaskStatus getStatus() {
         return status;
     }
@@ -51,7 +62,6 @@ public class Task implements Serializable {
         this.status = status;
     }
 
-    
     public Client getAppliedBy() {
         return appliedBy;
     }
@@ -60,7 +70,6 @@ public class Task implements Serializable {
         this.appliedBy = appliedBy;
     }
 
-    
     public Long getTaskId() {
         return taskId;
     }
@@ -76,7 +85,6 @@ public class Task implements Serializable {
     public void setCategory(String category) {
         this.category = category;
     }
-    
 
     public String getDescription() {
         return description;
@@ -101,6 +109,5 @@ public class Task implements Serializable {
     public void setRangeAmount(double rangeAmount) {
         this.rangeAmount = rangeAmount;
     }
-    
-    
+
 }
