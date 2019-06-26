@@ -11,7 +11,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 /**
@@ -25,32 +27,18 @@ public class ProjectReport implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "report_id")
     private Long reportId;
-    private String projectName;
-    private String freelancerName;
-    private String amount;
     private String feedback;
+    private String freelancerName;
     
      @ManyToOne
     @PrimaryKeyJoinColumn
     private Client appliedBy;
 
+    @OneToOne
+    @JoinColumn(name = "taskId")
+    private Task task;
+        
     public ProjectReport() {
-    }
-
-    public Long getReportId() {
-        return reportId;
-    }
-
-    public void setReportId(Long reportId) {
-        this.reportId = reportId;
-    }
-
-    public String getProjectName() {
-        return projectName;
-    }
-
-    public void setProjectName(String projectName) {
-        this.projectName = projectName;
     }
 
     public String getFreelancerName() {
@@ -61,15 +49,25 @@ public class ProjectReport implements Serializable {
         this.freelancerName = freelancerName;
     }
 
-    public String getAmount() {
-        return amount;
+    
+    public Task getTask() {
+        return task;
     }
 
-    public void setAmount(String amount) {
-        this.amount = amount;
+    public void setTask(Task task) {
+        this.task = task;
     }
 
-    public String getFeedback() {
+    
+    public Long getReportId() {
+        return reportId;
+    }
+
+    public void setReportId(Long reportId) {
+        this.reportId = reportId;
+    }
+
+       public String getFeedback() {
         return feedback;
     }
 

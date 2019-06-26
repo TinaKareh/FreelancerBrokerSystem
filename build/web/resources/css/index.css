@@ -74,14 +74,20 @@ and open the template in the editor.
 .table_row{
     padding-left: 25px;
 }
-.form-popup{
-    display: none;
-    position: fixed;
-    bottom: 0;
-    border: 3px solid #f1f1f1;
-    z-index: 9;
+top2{
+ background-color: #0069d9;
+  overflow: hidden;
 }
-form-container{
-    max-width: 700px;
-    background-color: white;
+top2 a{
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-style: oblique;
+  font-size: 20px;
+}
+top2 a.active{
+    background-color: #333;
+  color: white;
 }

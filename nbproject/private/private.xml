@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/GraceTina/Documents/NetBeansProjects/FuristicsFreelancerSystem/src/java/Controller/ClientAddTaskController.java</file>
-            <file>file:/C:/Users/GraceTina/Documents/NetBeansProjects/FuristicsFreelancerSystem/src/java/Model/TaskSkill.java</file>
-            <file>file:/C:/Users/GraceTina/Documents/NetBeansProjects/FuristicsFreelancerSystem/web/WEB-INF/client/post_task.jsp</file>
-            <file>file:/C:/Users/GraceTina/Documents/NetBeansProjects/FuristicsFreelancerSystem/src/java/Controller/RegisterFreelancerController.java</file>
-            <file>file:/C:/Users/GraceTina/Documents/NetBeansProjects/FuristicsFreelancerSystem/web/WEB-INF/Home/register_freelancer.jsp</file>
+            <file>file:/C:/Users/GraceTina/Documents/NetBeansProjects/FuristicsFreelancerSystem/web/resources/css/index.css</file>
+            <file>file:/C:/Users/GraceTina/Documents/NetBeansProjects/FuristicsFreelancerSystem/src/java/Controller/OnlineHelpController.java</file>
+            <file>file:/C:/Users/GraceTina/Documents/NetBeansProjects/FuristicsFreelancerSystem/web/WEB-INF/Home/online_help.jsp</file>
+            <file>file:/C:/Users/GraceTina/Documents/NetBeansProjects/FuristicsFreelancerSystem/web/WEB-INF/freelancer/freelancer_dashboard.jsp</file>
         </group>
     </open-files>
 </project-private>

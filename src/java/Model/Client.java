@@ -55,4 +55,8 @@ public class Client implements Serializable {
         this.user = user;
     }
 
+    @Override
+    public String toString() {
+        return "Client{" + "clientId=" + clientId + "}"; // user=" + user + ", task=" + task + '}';
+    }
 }

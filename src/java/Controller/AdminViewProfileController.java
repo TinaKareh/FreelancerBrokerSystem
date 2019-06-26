@@ -5,7 +5,7 @@
  */
 package Controller;
 
-import Service.AdminFacade;
+import Service.AdministratorFacade;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.ejb.EJB;
@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 public class AdminViewProfileController extends HttpServlet {
 
     @EJB
-    private AdminFacade adminFacade;
+    private AdministratorFacade adminFacade;
 
     /**
      * Handles the HTTP <code>GET</code> method.

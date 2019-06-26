@@ -20,12 +20,14 @@
         <div>
             <h1 style="font-size: 50px; font-weight: 600; font-style: oblique; color: #0069d9;"> <img src="../../resources/letter-f-logo-vector-4957605_1.jpg" width="70" height="70" alt="logo"/>uristics</h1><span style="font-style: oblique; color: #0069d9; font-size:16px;">A world-class platform for Freelancing activities</span>
         </div>
-        <div class="toppnav">
-            <a href="" class="btn btn-sm btn-lg">Help!</a>
+         <div class="toppnav">
+            <a href="/get/online/help" class="btn btn-sm btn-lg">Help!</a>
             <a href="/logout">Log out</a>
-            <a class="active" href="/client/profile/view">Profile</a>
+            <a href="/client/profile/view">Profile</a>
+            <a  href="/client/view/status">Report</a>
             <a href="/client/payment">Payment</a>
-            <a  href="/dashboard">Dashboard</a>
+            <a href="/client/add/task">Post a Job</a>
+            <a class="active" href="/dashboard">Dashboard</a>
         </div>
         <div class="container">
             <fieldset>

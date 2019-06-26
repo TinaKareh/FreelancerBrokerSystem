@@ -67,7 +67,8 @@ public class ClientAddTaskController extends HttpServlet {
         Task task = new Task();
         task.setCategory(request.getParameter("category"));
         task.setDuration(Integer.parseInt(request.getParameter("duration")));
-        task.setRangeAmount(Double.parseDouble(request.getParameter("price")));
+        task.setMaxAmount(Double.parseDouble(request.getParameter("maxprice")));
+        task.setLocation(request.getParameter("location"));
         task.setDescription(request.getParameter("desc"));
         task.setProjectName(request.getParameter("project"));
         task.setStatus(TaskStatus.BD);

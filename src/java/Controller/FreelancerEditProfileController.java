@@ -56,7 +56,7 @@ public class FreelancerEditProfileController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        Freelancer f = (Freelancer) request.getSession().getAttribute("free");
+        Freelancer f = (Freelancer) request.getSession().getAttribute("user");
         f.getUser().setFirstName(request.getParameter("fname"));
         f.getUser().setLastName(request.getParameter("lname"));
         f.getUser().setUserName(request.getParameter("uname"));
@@ -69,7 +69,7 @@ public class FreelancerEditProfileController extends HttpServlet {
         authUserFacade.edit(f.getUser());
         freelancerFacade.edit(f);
         
-        request.getSession().setAttribute("free", f);
+        request.getSession().setAttribute("user", f);
         response.sendRedirect("/freelancer/profile/view");
     }
     

@@ -23,9 +23,9 @@
         <div class="toppnav">
             <a href="/logout">Log out</a>
             <a  class="active"href="/admin/profile/view">Profile</a>
-            <a href="">Payment</a>
-            <a href="">Reports</a>
-            <a  href="/admin/dashboard">Home</a>
+            <a href="/admin/payment">Payment</a>
+            <a href="/admin/view/project">Reports</a>
+            <a  href="/dashboard/admin">Home</a>
         </div>
         <div class="container">
             <fieldset>
@@ -46,7 +46,7 @@
                         </div>
                         <div class="form-group">
                             <label for="email">Email Address</label><span style="color: #0069d9;">*</span><br>
-                            <input uname="email" class="form-control" type="email" id="email" style="width: 170%;" value="${user.emailAddress}" required="">
+                            <input name="email" class="form-control" type="email" id="email" style="width: 170%;" value="${user.emailAddress}" required="">
                         </div>
                     </div>
                     <div class="topnav">

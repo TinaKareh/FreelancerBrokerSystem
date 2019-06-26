@@ -3,7 +3,7 @@
     Created on : Jun 4, 2019, 2:59:16 PM
     Author     : GraceTina
 --%>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -26,35 +26,39 @@
         <div class="toppnav">
             <a href="/logout">Log out</a>
             <a href="/admin/profile/view">Profile</a>
-            <a href="">Payment</a>
-            <a href="" type="button"data-toggle="modal" data-target="#myModal">>Reports</a>
-            <div class="container">
-                <div id="myModal" class="modal fade" role="dialog">
-                    <div class="modal-dialog modal-lg">
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">Feedback Reports</h4>
-                            </div>
-                            <div class="modal-body">
-
-                                <embed src="~/Content/Article List.pdf"
-                                       frameborder="0" width="100%" height="400px">
-
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <a class="active" href="/dashboard/admin">Home</a>
+            <a href="/admin/payment">Payment</a>
+            <a  class="active"href="/admin/view/project">Reports</a>
+            <a  href="/dashboard/admin">Home</a>
         </div>
-        <div>
-
+        <div class="container" style="margin-top: 50px;">
+            <div class="form-group">
+                <button type="submit" class="btn btn-sm btn-danger" onclick="window.print()">Print PDF</button>
+            </div>
+            <div class="card" >
+                <div class="card-header">Project Reports</div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th style="color: #0069d9; font-style: oblique;">Report ID</th>
+                            <th style="color: #0069d9; font-style: oblique;">Project Name</th>
+                            <th style="color: #0069d9; font-style: oblique;">Freelancer Name</th>
+                            <th style="color: #0069d9; font-style: oblique;">Feedback</th>
+                            <th style="color: #0069d9; font-style: oblique">Client Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <c:forEach items="${reports}" var="report" >
+                            <tr>
+                                <td>${report.reportId}</td>
+                                <td>${report.task.projectName}</td>
+                                <td>${report.freelancerName}</td>
+                                <td>${report.feedback}</td>
+                                <td>${report.appliedBy.user.firstName} &nbsp ${report.appliedBy.user.lastName}</td>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </body>
 </html>

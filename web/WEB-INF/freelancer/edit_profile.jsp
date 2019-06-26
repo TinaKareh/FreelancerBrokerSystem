@@ -21,7 +21,7 @@
             <h1 style="font-size: 50px; font-weight: 600; font-style: oblique; color: #0069d9;"> <img src="../../resources/letter-f-logo-vector-4957605_1.jpg" width="70" height="70" alt="logo"/>uristics</h1><span style="font-style: oblique; color: #0069d9; font-size:16px;">A world-class platform for Freelancing activities</span>
         </div>
         <div class="toppnav">
-            <a href="" class="btn btn-sm btn-lg">Help!</a>
+            <a href="/get/online/help" class="btn btn-sm btn-lg">Help!</a>
             <a href="/logout">Log out</a>
             <a  class="active"href="/freelancer/profile/view">Profile</a>
             <a  href="/dashboard/freelancer">Home</a>
@@ -46,7 +46,7 @@
                         </div>
                         <div class="form-group">
                             <label for="email">Email Address</label><span style="color: #0069d9;">*</span><br>
-                            <input uname="email" class="form-control" type="email" id="email" style="width: 170%;" value="${user.user.emailAddress}" required="">
+                            <input name="email" class="form-control" type="email" id="email" style="width: 170%;" value="${user.user.emailAddress}" required="">
                         </div>
 
                         <div class="form-group">

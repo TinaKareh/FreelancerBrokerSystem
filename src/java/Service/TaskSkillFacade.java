@@ -34,4 +34,10 @@ public class TaskSkillFacade extends AbstractFacade<TaskSkill> {
     public TaskSkillFacade() {
         super(TaskSkill.class);
     }
+    
+   public List<TaskSkill> getSkillByTask( Task task){
+    Query query = getEntityManager().createQuery("select taskSkill from TaskSkill taskSkill where taskSkill.task = :task");
+    query.setParameter("task", task);
+        return (List<TaskSkill>) query.getResultList();
+    }
 }

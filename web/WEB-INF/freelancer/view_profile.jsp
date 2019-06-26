@@ -27,48 +27,46 @@
 
         </div>
         <div class="toppnav">
-            <a href="" class="btn btn-sm btn-lg">Help!</a>
+            <a href="/get/online/help" class="btn btn-sm btn-lg">Help!</a>
             <a href="/logout">Log out</a>
             <a class="active" href="/freelancer/profile/view">Profile</a>
+            <a href="/freelancer/assigned/tasks">Assigned Tasks</a>
             <a  href="/dashboard/freelancer">Home</a>
-            <input type="text" class="form-control" style="width: 20%" placeholder="Search..">
         </div>
         <div class="" style="" >
-            <div class="card" style="float: left; margin-top: 50px; margin-left: 50px;">
-                <fieldset>
-                    <legend style="font-size:30px; font-style: oblique;  color: #0069d9;"> Profile</legend>
-                    <div class="card-header">
-                        <img src="../../resources/avatar.jpg" width="130" height="130" alt="avatar" style="margin-left: 40px;"/><br>
-                        <h9 style="font-size:25px; font-style: oblique; color: #0069d9;"><span>*</span>${user.user.userName}</h9><br>
-                        <h8 style="font-size:15px; font-style: oblique; color: #0069d9;"><span>*</span>${user.user.emailAddress}</h8>
+            <div class="card" style="float: left; margin-top: 15px; margin-left: 60px">
+                <div class="card-header">
+                    <img src="../../resources/avatar.jpg" width="130" height="130" alt="avatar" style="margin-left: 40px;"/><br>
+                    <h9 style="font-size:25px; font-style: oblique; color: #0069d9;"><span>*</span>${user.user.userName}</h9><br>
+                    <h8 style="font-size:15px; font-style: oblique; color: #0069d9;"><span>*</span>${user.user.emailAddress}</h8>
 
+                </div>
+                <div class="card-body">
+                    <table>
+                        <tr>
+                            <td><b>Full Name:</b></td>
+                            <td class="table_row">${user.user.firstName} ${user.user.lastName}</td>
+                        </tr>
+
+                        <tr>
+                            <td><b>User Name:</b></td>
+                            <td class="table_row">${user.user.userName}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Email Address:</b></td>
+                            <td class="table_row">${user.user.emailAddress}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Phone Number:</b></td>
+                            <td class="table_row">${user.user.phoneNumber}</td>
+                        </tr>
+
+                    </table>
+                    <div class="card-footer"> 
+                        <a href="/freelancer/profile/edit" class="btn btn-sm btn-primary" >Edit Profile</a>
                     </div>
-                    <div class="card-body">
-                        <table>
-                            <tr>
-                                <td><b>Full Name:</b></td>
-                                <td class="table_row">${user.user.firstName} ${user.user.lastName}</td>
-                            </tr>
+                </div>
 
-                            <tr>
-                                <td><b>User Name:</b></td>
-                                <td class="table_row">${user.user.userName}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Email Address:</b></td>
-                                <td class="table_row">${user.user.emailAddress}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Phone Number:</b></td>
-                                <td class="table_row">${user.user.phoneNumber}</td>
-                            </tr>
-
-                        </table>
-                        <div class="card-footer"> 
-                            <a href="/freelancer/profile/edit" class="btn btn-sm btn-primary" >Edit Profile</a>
-                        </div>
-                    </div>
-                </fieldset>
             </div>
             <div class="" style="margin-top: 50px; margin-right: 50px; margin-left: 600px;"> 
                 <fieldset>
@@ -77,8 +75,11 @@
                         <div class="card-header"><i class="fa fa-home">Education</i></div>
                         <div class="card-body">
                             <table class="table">
-                                    <h1>${user.degree}</h1>
-                                    <p>${user.country} ${user.startYear}-${user.endYear}</p>
+                                <c:forEach items="${educations}" var="education">
+                                    <h1 style="font-size: 20px;">${education.degree}</h1>
+                                    <h8>${education.country}</h8>
+                                    <p>${education.startYear} - ${education.endYear}</p>
+                                </c:forEach>
                             </table>
                         </div>
                         <div class="card-footer"> 
@@ -89,9 +90,12 @@
                         <div class="card-header"><i class="fa fa-home">Experience</i></div>
                         <div class="card-body">
                             <table class="table">
-                                    <h1>${user.title}</h1>
-                                    <p>${user.company} ${user.startYear}-${user.endYear}</p>
-                                    <p>${user.summary}</p>
+                                <c:forEach items="${experiences}" var="experiences">
+                                    <h1 style="font-size: 20px;">${experiences.title}</h1>
+                                    <h8>${experiences.company}</h8>
+                                    <p>${experiences.startYear} - ${experiences.endYear}<p>
+                                    <p>${experiences.summary}</p>
+                                </c:forEach>
                             </table> 
                         </div>
                         <div class="card-footer"> 
@@ -101,9 +105,15 @@
                     <div class="card" style="margin-top: 50px; ">
                         <div class="card-header"><i class="fa fa-home">Skills</i></div>
                         <div class="card-body">
-                            <table>
-                                <td></td>
-                            </table>
+                            <table class="table">
+                                <c:forEach items="${skills}" var="skill">
+
+                                    <tr>${skill.s.name}</tr>&nbsp
+                                </c:forEach>
+                            </table> 
+                        </div>
+                          <div class="card-footer"> 
+                            <a href="" class="btn btn-sm btn-primary" style="float: right; width: 90px;" >Skills</a>
                         </div>
                     </div>
                 </fieldset>

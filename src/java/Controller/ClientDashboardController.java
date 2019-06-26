@@ -7,11 +7,11 @@ package Controller;
 
 import Model.Client;
 import Model.Task;
-import static Model.Task_.appliedBy;
+import Model.TaskSkill;
 import Service.ClientFacade;
 import Service.TaskFacade;
+import Service.TaskSkillFacade;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -19,6 +19,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -26,10 +27,13 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "ClientDashboardController", urlPatterns = {"/dashboard"})
 public class ClientDashboardController extends HttpServlet {
-@EJB
- private ClientFacade clientFacade;
-@EJB
-  private TaskFacade taskFacade;
+
+    @EJB
+    private ClientFacade clientFacade;
+    @EJB
+    private TaskFacade taskFacade;
+    @EJB
+    private TaskSkillFacade facade;
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -42,10 +46,16 @@ public class ClientDashboardController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Task task = new Task();
-         List<Task> tasks = taskFacade.findAll();
+        // HttpServletRequest httpReq = (HttpServletRequest) request;
+        HttpSession session = request.getSession();
+        Client client = (Client) session.getAttribute("user");
+        List<Task> tasks = taskFacade.getTasksByClient(client);
         request.setAttribute("tasks", tasks);
-        getServletContext().getRequestDispatcher("/WEB-INF/client/dashboard.jsp").forward(request, response);
+        List<Task> approvedTasks = taskFacade.getApprovedTasks(client);
+        request.setAttribute("jobs", approvedTasks);
+        getServletContext()
+                .getRequestDispatcher("/WEB-INF/client/dashboard.jsp")
+                .forward(request, response);
     }
 
 }

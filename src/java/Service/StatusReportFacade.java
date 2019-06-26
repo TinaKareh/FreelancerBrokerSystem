@@ -5,10 +5,13 @@
  */
 package Service;
 
+import Model.Client;
 import Model.StatusReport;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -29,4 +32,10 @@ public class StatusReportFacade extends AbstractFacade<StatusReport> {
         super(StatusReport.class);
     }
     
+   public List<StatusReport> getStatusByClient(Client client){
+       Query query = getEntityManager().createQuery("select status from StatusReport status where status.client = :client");
+       query.setParameter("client", client);
+        return (List<StatusReport>)query.getResultList();
+       
+   }
 }

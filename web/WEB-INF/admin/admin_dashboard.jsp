@@ -24,11 +24,12 @@
         <div class="toppnav">
             <a href="/logout">Log out</a>
             <a href="/admin/profile/view">Profile</a>
-            <a href="">Payment</a>
-            <a href="">Reports</a>
+            <a href="/admin/payment">Payment</a>
+            <a href="/admin/view/project">Reports</a>
             <a class="active" href="/dashboard/admin">Home</a>
         </div>
-        <div style="margin-top: 50px;">
+        <div class="card" style="margin-top: 50px;">
+            <div class="card-header">User Details</div>
             <table class="table table-striped">
                 <thead>
                     <tr>

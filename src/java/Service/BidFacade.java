@@ -6,9 +6,12 @@
 package Service;
 
 import Model.Bid;
+import Model.Task;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -28,5 +31,23 @@ public class BidFacade extends AbstractFacade<Bid> {
     public BidFacade() {
         super(Bid.class);
     }
+
+    public List<Bid> taskDeals(Task task) {
+
+        Query query = getEntityManager()
+                .createQuery(
+                        "select b from Bid b where b.task = :task and b.bidAmount <= :taskMaxAmnt");
+
+        query.setParameter("task", task);
+        query.setParameter("taskMaxAmnt", task.getMaxAmount());
+
+        return (List<Bid>) query.getResultList();
+    }
     
+    public List<Bid> getBidByTask(Task task) {
+        Query query = getEntityManager().createQuery("select bid from Bid bid where bid.task = :task");
+        query.setParameter("task", task);
+        return (List<Bid>) query.getResultList();
+
+    }
 }

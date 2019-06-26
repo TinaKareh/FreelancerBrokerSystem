@@ -61,7 +61,7 @@ public class FreelancerEducationController extends HttpServlet {
         e.setDegree(request.getParameter("degree"));
         e.setStartYear(request.getParameter("startYear"));
         e.setEndYear(request.getParameter("endYear"));
-        e.setF(user);
+        e.setFreelancer(user);
         ef.create(e);
 
         response.sendRedirect("/freelancer/profile/view");

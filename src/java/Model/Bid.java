@@ -13,9 +13,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 
 /**
  *
@@ -33,14 +30,23 @@ public class Bid implements Serializable {
     private double bidAmount;
 
     @ManyToOne
-    @PrimaryKeyJoinColumn
+    @JoinColumn(name = "freelancerId")
     private Freelancer appliedBy;
-    
-   
+
+    @ManyToOne
+    @JoinColumn(name = "taskId")
+    private Task task;
 
     public Bid() {
     }
-    
+
+    public Task getTask() {
+        return task;
+    }
+
+    public void setTask(Task task) {
+        this.task = task;
+    }
 
     public Freelancer getAppliedBy() {
         return appliedBy;
@@ -49,7 +55,6 @@ public class Bid implements Serializable {
     public void setAppliedBy(Freelancer appliedBy) {
         this.appliedBy = appliedBy;
     }
-    
 
     public Long getBidId() {
         return bidId;

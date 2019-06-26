@@ -6,7 +6,8 @@
 package Controller;
 
 import Model.Administrator;
-import Service.AdminFacade;
+import Model.AuthUser;
+import Service.AdministratorFacade;
 import Service.AuthUserFacade;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -24,10 +25,10 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "AdminEditProfileController", urlPatterns = {"/admin/edit/profile"})
 public class AdminEditProfileController extends HttpServlet {
 
-  @EJB
-  private AuthUserFacade authUserFacade;
-  @EJB
-  private AdminFacade adminFacade;
+    @EJB
+    private AuthUserFacade authUserFacade;
+    @EJB
+    private AdministratorFacade administratorFacade;
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -54,23 +55,21 @@ public class AdminEditProfileController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        Administrator a = (Administrator)request.getSession().getAttribute("user");
-        a.getUser().setFirstName(request.getParameter("fname"));
-        a.getUser().setLastName(request.getParameter("lname"));
-        a.getUser().setEmailAddress(request.getParameter("email"));
-        a.getUser().setUserName(request.getParameter("uname"));
-        a.getUser().setPhoneNumber(request.getParameter("phoneNo"));
-        a.getUser().setPassword(request.getParameter("password"));
-        a.getUser().setConfirmPass(request.getParameter("confirmPass"));
-        
-        authUserFacade.edit(a.getUser());
-        adminFacade.edit(a);
-         request.getSession().setAttribute("user", a);
-        response.sendRedirect("/admin/profile/view");
-        
-    }
 
-   
+        AuthUser user = (AuthUser) request.getSession().getAttribute("user");
+        user.setFirstName(request.getParameter("fname"));
+        user.setLastName(request.getParameter("lname"));
+        user.setEmailAddress(request.getParameter("email"));
+        user.setUserName(request.getParameter("uname"));
+        user.setPhoneNumber(request.getParameter("phoneNo"));
+        user.setPassword(request.getParameter("password"));
+        user.setConfirmPass(request.getParameter("confirmPass"));
+
+        authUserFacade.edit(user);
+        // administratorFacade.edit(a);
+        request.getSession().setAttribute("user", user);
+        response.sendRedirect("/admin/profile/view");
+
+    }
 
 }

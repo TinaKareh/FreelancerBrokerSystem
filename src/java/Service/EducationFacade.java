@@ -5,19 +5,23 @@
  */
 package Service;
 
+import Model.Client;
 import Model.Education;
 import Model.Freelancer;
+import Model.Task;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 
 /**
  *
  * @author GraceTina
  */
 @Stateless
+@Transactional
 public class EducationFacade extends AbstractFacade<Education> {
 
     @PersistenceContext(unitName = "FuristicsFreelancerSystemPU")
@@ -30,6 +34,13 @@ public class EducationFacade extends AbstractFacade<Education> {
 
     public EducationFacade() {
         super(Education.class);
+    }
+    public List<Education> getEducationByFreelancer(Freelancer freelancer) {
+        // String jpql = "select * from Task a where a.appliedBy_client_id = (:appliedBy)";
+        Query query = getEntityManager()
+                .createQuery("select education from Education education where education.freelancer = :freelancer");
+        query.setParameter("freelancer", freelancer);
+        return (List<Education>) query.getResultList();
     }
  
 }

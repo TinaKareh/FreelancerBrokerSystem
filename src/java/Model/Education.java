@@ -37,17 +37,17 @@ public class Education implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "freelancer_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
-    private Freelancer f;
+    private Freelancer freelancer;
 
     public Education() {
     }
 
-    public Freelancer getF() {
-        return f;
+    public Freelancer getFreelancer() {
+        return freelancer;
     }
 
-    public void setF(Freelancer f) {
-        this.f = f;
+    public void setFreelancer(Freelancer freelancer) {
+        this.freelancer = freelancer;
     }
 
     public Long getEducationId() {

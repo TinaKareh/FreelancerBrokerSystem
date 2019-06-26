@@ -23,9 +23,10 @@
             <h1 style="font-size: 50px; font-weight: 600; font-style: oblique; color: #0069d9;"> <img src="../../resources/letter-f-logo-vector-4957605_1.jpg" width="70" height="70" alt="logo"/>uristics</h1><span style="font-style: oblique; color: #0069d9; font-size:16px;">A world-class platform for Freelancing activities</span>
         </div>
         <div class="toppnav">
-            <a href="" class="btn btn-sm btn-lg">Help!</a>
+            <a href="/get/online/help" class="btn btn-sm btn-lg">Help!</a>
             <a href="/logout">Log out</a>
             <a href="/client/profile/view">Profile</a>
+            <a  href="/client/view/status">Report</a>
             <a href="/client/payment">Payment</a>
             <a class="active" href="/client/add/task">Post a Job</a>
             <a  href="/dashboard">Dashboard</a>
@@ -36,7 +37,7 @@
                     <form method="POST" action="">
                         <div class="card-header"><i class="fa fa-home">Post Task</i></div>
                         <div class="card-body">
-                             <div class="form-group">
+                            <div class="form-group">
                                 <label for="project">Project Name</label><br>
                                 <input name="project" class="form-control" type="text" id="project"  required="">
                             </div>
@@ -65,9 +66,14 @@
                                 <label for="duration">Duration</label><span style="color: #0069d9">(days)*</span><br>
                                 <input name="duration" class="form-control" type="text" id="duration"  required="">
                             </div>
+
                             <div class="form-group">
-                                <label for="price">Price Range</label><span style="color: #0069d9">(USD)*</span><br>
-                                <input name="price" class="form-control" type="text" id="price"  required="">
+                                <label for="maxprice">Suitable Price</label><span style="color: #0069d9">(Kshs)*</span><br>
+                                <input name="maxprice" class="form-control" type="text" id="maxprice"  required="">
+                            </div>
+                            <div class="form-group">
+                                <label for="location">Location</label><span style="color: #0069d9">(applicable for physical jobs)</span><br>
+                                <input name="location" class="form-control" type="text" id="location"  >
                             </div>
                             <div class="form-group">
                                 <label for="desc">Description</label><span style="color: #0069d9">*</span><br>

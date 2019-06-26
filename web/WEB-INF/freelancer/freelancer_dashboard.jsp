@@ -25,88 +25,63 @@
 
         </div>
         <div class="toppnav">
-            <a href="" class="btn btn-sm btn-lg">Help!</a>
+            <a href="/get/online/help" class="btn btn-sm btn-lg">Help!</a>
             <a href="/logout">Log out</a>
             <a href="/freelancer/profile/view">Profile</a>
+            <a href="/freelancer/assigned/tasks">Assigned Tasks</a>
             <a class="active" href="/dashboard/freelancer">Home</a>
             <a style="float: left;" href="">Available | Tasks</a>
-            <input type="text" class="form-control" style="width: 20%" placeholder="Search..">
         </div>
-        <div>
-            <div class="container" >
+        <div class="container">
+            <fieldset style="margin-right: 200px;">
                 <h2 style="font-size: 16px; font-style: oblique; color: #000; margin-top: 20px;">To bid on a task click on the bid button on each task*</h2>
-                <div class="task" style="float: left; margin-top: 20px;">
-                    <fieldset>
-                        <form action="" method="GET">
-                            <c:forEach items="${tasks}" var="task">
-                                <div class="form-group">
-                                    <label style="color: #000;">Category:</label>
-                                    <p>${task.category}</p>
-                                </div>
-                                <div class="form-group">
-                                    <label style="color: #000;">Duration:</label>
-                                    <p>${task.duration}</p>
-                                </div>
-                                <div class="form-group">
-                                    <label style="color: #000;">Price Range:</label>
-                                    <p>${task.rangeAmount}</p>
-                                </div>
-                                 <div class="form-group">
-                                    <label style="color: #000;">Description:</label>
-                                    <p>${task.description}</</p>
-                                </div>
-                                 <div class="form-group">
-                                    <label style="color: #000;">Bid:</label>
-                                <a href="/add/bids" style="margin-bottom: 5px;" class="btn btn-primary btn-sm">Add Bid</a>
-                                </div>
-                            </c:forEach>
-                        </form>
-                    </fieldset>
-                </div>
-                <div style="float: right;">
-                    <fieldset>
-                        <img src="../../resources/letter-f-logo-vector-4957605_1.jpg" width="300" height="600" alt="letter-f-logo-vector-4957605_1" style="margin-top: 20px;"/>
-                    </fieldset>
-                </div>
-                <div>
-
-                </div>
-            </div>
+                <c:forEach items="${tasks}" var="task">
+                    <div class="card" >
+                        <div class="card-header">
+                            <i class="fa fa-home">Task:<span style="font-style: oblique;">${task.taskId}</span></i>
+                        </div>
+                        <div class="card-body" style="float: left; margin-top: 20px;">
+                            <form action="" method="GET">
+                                <table>
+                                    <tr>
+                                        <td align="left" style="font-style: oblique;"><b>Project Name:</b></td>
+                                        <td style="font-style: oblique;">${task.projectName}</td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left" style="font-style: oblique;"><b>Category:</b></td>
+                                        <td style="font-style: oblique;">${task.category}</td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left" style="font-style: oblique;"><b>Duration:</b></td>
+                                        <td style="font-style: oblique;">${task.duration}</td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left" style="font-style: oblique;"><b>Price Range:</b></td>
+                                        <td style="font-style: oblique;"> ${task.maxAmount} </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left" style="font-style: oblique;"><b>Location:</b></td>
+                                        <td style="font-style: oblique;">${task.location}  </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left" style="font-style: oblique;"><b>Description:</b></td>
+                                        <td style="font-style: oblique;">${task.description}</td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left" style="font-style: oblique;"><b>Task Status:</b></td>
+                                        <td style="font-style: oblique;">${task.status.status}</td>
+                                    </tr>
+                                </table>
+                            </form>
+                        </div>
+                        <div class="card-footer">
+                            <div class="form-group">
+                                <a href="/freelancer/add/bids?taskId=${task.taskId}" style="float: right;" class="btn btn-primary btn-sm" value="">Add Bid</a>
+                            </div>
+                        </div>
+                    </div><br>
+                </c:forEach>
+            </fieldset>
         </div>
-        <div class="footer2">
-
-            <fieldset>
-                <div class="footer-list">
-                    <h6 style="font-size:25px; color: #0069d9;">FURISTICS</h6>
-                    <h7 class="list-tina"><span style="color: #0069d9;">|</span> CONTACT</h7>
-                    <ul class="list-tina"><br>
-                        <li>905-677-4848</li>
-                        <li> <a href="">customercare@furistics.ca</a></li>
-
-                    </ul>
-                </div>
-                <div class="footer-list2" >
-                    <h6 style="font-size:25px; color: #0069d9;">Talk to Us</h6>
-
-                    <div class="form-group">
-                        <label style="color: #0069d9; for ="name">Your Name</label><span style="color: #0069d9;">*</span>
-                        <input name="name" class="form-control" type="text" style="width: 150%;" id="name"  required="">
-                    </div>
-                    <div class="form-group">
-                        <label style="color: #0069d9; for ="email">Your EmailAddr</label><span style="color: #0069d9;">*</span>
-                        <input name="email" class="form-control" type="email" style="width: 150%;" id="duration"  required="">
-                    </div>
-                    <div class="form-group">
-                        <label style="color: #0069d9; for ="phoneNo">Your PhoneN.O</label><span style="color: #0069d9;">*</span>
-                        <input name="phoneNo" class="form-control" type="text" style="width: 150%;" id="name"  required="">
-                    </div>
-                    <div   class ="form-group">
-                        <label style="color: #0069d9; for="message">Your Message</label><span style="color: #0069d9;">*</span>
-                        <input name="message" class="form-control" type="text" style="width: 150%;" id="name"  required="">
-                    </div>
-                    <div>
-                        <button class="btn btn-primary btn-sm" style="width: 150%;" type="submit">Send</button>
-                    </div>
-                </div>
-                </body>
-                </html>
+    </body>
+</html>

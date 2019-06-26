@@ -6,9 +6,11 @@
 package Service;
 
 import Model.Client;
+import Model.Freelancer;
 import Model.FreelancerSkill;
 import Model.Skill;
 import Model.Task;
+import Model.TaskStatus;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -35,28 +37,40 @@ public class TaskFacade extends AbstractFacade<Task> {
         super(Task.class);
     }
 
-    public List<Task> getTaskByClientId(Client appliedBy) {
-        String jpql = "select * from Task where appliedBy_client_id = ?";
-        Query query = getEntityManager().createNamedQuery(jpql);
+    public List<Task> getTasksByClient(Client appliedBy) {
+        Query query = getEntityManager()
+                .createQuery("select task from Task task where task.appliedBy = :appliedBy and task.status = :status");
+        query.setParameter("appliedBy", appliedBy);
+        query.setParameter("status", TaskStatus.BD);
         return (List<Task>) query.getResultList();
-
+    }
+    
+    public  List<Task> getApprovedTasks(Client appliedBy){
+        Query query = getEntityManager().createQuery("select task from Task task where task.appliedBy = :appliedBy and task.status = :status");
+        query.setParameter("appliedBy", appliedBy);
+        query.setParameter("status", TaskStatus.IP);
+        return (List<Task>) query.getResultList();
     }
 
     public List<Task> relevantTasks(List<FreelancerSkill> fSkills) {
         List<Skill> skills = new ArrayList<>();
-       // LOG.log(Level.INFO, String.valueOf(fSkills.size()));
-        // try logging in using a user who has some skills set
         fSkills.forEach(fSkill -> skills.add(fSkill.getS()));
-        /*String jpql = "select t from Task t "
-                    + "inner join TaskSkill.taskId "
-                    + "where ts.skillId in :skills";*/
 
-        String hql = "select ts.task from TaskSkill ts where ts.skill in (:skills)";
+        String hql = "select DISTINCT ts.task from TaskSkill ts where ts.skill in (:skills) and ts.task.status = :status";
         Query query = getEntityManager().createQuery(hql);
         query.setParameter("skills", skills);
-
+        query.setParameter("status", TaskStatus.BD);
         return (List<Task>) query.getResultList();
-
     }
     // private static final Logger LOG = Logger.getLogger(TaskFacade.class.getName());
+
+    public List<Task> freelancerAssignedTasks(Freelancer freelancer) {
+
+        Query query = getEntityManager().createQuery(
+                "select task from Task task where task.bestDeal.appliedBy = :appliedBy");
+        query.setParameter("appliedBy", freelancer);
+
+        return (List<Task>) query.getResultList();
+    }
+
 }

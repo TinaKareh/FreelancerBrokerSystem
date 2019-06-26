@@ -63,7 +63,7 @@ public class FreelancerExperienceController extends HttpServlet {
         e.setStartYear(request.getParameter("startYear"));
         e.setEndYear(request.getParameter("endYear"));
         e.setSummary(request.getParameter("summary"));
-        e.setF(user);
+        e.setFreelancer(user);
         ef.create(e);
 
 

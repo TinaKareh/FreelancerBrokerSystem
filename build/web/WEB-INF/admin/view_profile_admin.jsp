@@ -24,22 +24,20 @@
         <div class="toppnav">
             <a href="/logout">Log out</a>
             <a class="active" href="/admin/profile/view">Profile</a>
-            <a href="">Payment</a>
-            <a href="">Reports</a>
+            <a href="/admin/payment">Payment</a>
+            <a href="/admin/view/project">Reports</a>
            <a  href="/dashboard/admin">Home</a>
         </div>
-        <div class="" >
-            <div class="card" style="float: left; margin-top: 50px; margin-left: 200px;">
-                <fieldset>
-                    <legend style="font-size:30px; font-style: oblique;  color: #0069d9;"> Profile</legend>
+        <div class=" container" >
+            <div class="card" style="margin-top: 50px;">
                     <div class="card-header">
-                        <img src="../../resources/avatar.jpg" width="130" height="130" alt="avatar" style="margin-left: 40px;"/><br>
-                        <h9 style="font-size:30px; font-style: oblique; margin-left: 40px; color: #0069d9;"><span>*</span>${user.userName}</h9><br>
-                        <h8 style="font-size:20px; font-style: oblique;  color: #0069d9;"><span>*</span>${user.emailAddress}</h8>
+                        <img src="../../resources/avatar.jpg" width="130" height="130" alt="avatar" style="margin-left: 500px;"/><br>
+                        <h9 style="font-size:30px; font-style: oblique; margin-left: 500px; color: #0069d9;"><span>*</span>${user.userName}</h9><br>
+                        <h8 style="font-size:20px; font-style: oblique;  margin-left: 500px; color: #0069d9;"><span>*</span>${user.emailAddress}</h8>
 
                     </div>
                     <div class="class-body">
-                        <table>
+                        <table class="" style="margin-left: 500px;">
                             <tr>
                                 <td><b>Full Name:</b></td>
                                 <td class="table_row">${user.firstName} ${user.lastName}</td>
@@ -59,10 +57,9 @@
                             </tr>
                         </table>
                         <div class="card-footer">
-                            <td><a href="/admin/edit/profile" class="btn btn-sm btn-primary" >Edit Profile</a></td>
+                            <td><a href="/admin/edit/profile" class="btn btn-sm btn-primary" style="float: right;" >Edit Profile</a></td>
                         </div>
                     </div>
-                </fieldset>
             </div>
         </div>
     </body>

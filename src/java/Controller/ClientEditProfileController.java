@@ -57,7 +57,7 @@ public class ClientEditProfileController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Client c = (Client) request.getSession().getAttribute("client");
+        Client c = (Client) request.getSession().getAttribute("user");
         c.getUser().setFirstName(request.getParameter("fname"));
         c.getUser().setLastName(request.getParameter("lname"));
         c.getUser().setUserName(request.getParameter("uname"));
@@ -69,7 +69,7 @@ public class ClientEditProfileController extends HttpServlet {
         authUserFacade.edit(c.getUser());
         clientFacade.edit(c);
         
-        request.getSession().setAttribute("client", c);
+        request.getSession().setAttribute("user", c);
         response.sendRedirect("/client/profile/view");
     }
 

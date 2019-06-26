@@ -6,14 +6,17 @@
 package Model;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 /**
@@ -28,15 +31,50 @@ public class StatusReport implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "status_id")
     private Long statusId;
-    private String projectName;
     private String status;
+    private Date statusDate;
+    
     @ManyToOne
     @PrimaryKeyJoinColumn
     private Freelancer appliedBy;
+    
+    @ManyToOne
+    @JoinColumn(name = "taskId")
+    private Task task;
+    
+    @ManyToOne
+    @JoinColumn(name = "clientId")
+    private Client client;
 
     public StatusReport() {
     }
 
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public Task getTask() {
+        return task;
+    }
+
+    public void setTask(Task task) {
+        this.task = task;
+    }
+
+    
+    public Date getStatusDate() {
+        return statusDate;
+    }
+
+    public void setStatusDate(Date statusDate) {
+        this.statusDate = statusDate;
+    }
+
+    
     public Long getStatusId() {
         return statusId;
     }
@@ -45,13 +83,7 @@ public class StatusReport implements Serializable {
         this.statusId = statusId;
     }
 
-    public String getProjectName() {
-        return projectName;
-    }
-
-    public void setProjectName(String projectName) {
-        this.projectName = projectName;
-    }
+  
 
     public String getStatus() {
         return status;

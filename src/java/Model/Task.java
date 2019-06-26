@@ -13,8 +13,9 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -32,15 +33,20 @@ public class Task implements Serializable {
     private String description;
     private String projectName;
     private int duration;
-    private double rangeAmount;
-    
-    @Column(length = 24, columnDefinition = "varchar(24) default 'BIDDING'")
+    private double maxAmount;
+    private String Location;
+
+    @Column()
     @Enumerated(EnumType.STRING)
     private TaskStatus status;
 
     @ManyToOne
-    @PrimaryKeyJoinColumn
+    @JoinColumn(name = "client_id")
     private Client appliedBy;
+
+    @OneToOne
+    @JoinColumn(name = "bid_id")
+    private Bid bestDeal;
 
     public Task() {
     }
@@ -53,7 +59,6 @@ public class Task implements Serializable {
         this.projectName = projectName;
     }
 
-    
     public TaskStatus getStatus() {
         return status;
     }
@@ -102,12 +107,33 @@ public class Task implements Serializable {
         this.duration = duration;
     }
 
-    public double getRangeAmount() {
-        return rangeAmount;
+    public double getMaxAmount() {
+        return maxAmount;
     }
 
-    public void setRangeAmount(double rangeAmount) {
-        this.rangeAmount = rangeAmount;
+    public void setMaxAmount(double maxAmount) {
+        this.maxAmount = maxAmount;
     }
 
+    public String getLocation() {
+        return Location;
+    }
+
+    public void setLocation(String Location) {
+        this.Location = Location;
+    }
+
+    public Bid getBestDeal() {
+        return bestDeal;
+    }
+
+    public void setBestDeal(Bid bestDeal) {
+        this.bestDeal = bestDeal;
+    }
+    
+
+    @Override
+    public String toString() {
+        return "Task{" + "taskId=" + taskId + ", category=" + category + ", description=" + description + ", projectName=" + projectName + ", duration=" + duration + ", maxAmount=" + maxAmount + ", Location=" + Location + ", status=" + status + ", appliedBy=" + appliedBy + '}';
+    }
 }

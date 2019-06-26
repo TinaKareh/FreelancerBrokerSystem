@@ -6,7 +6,7 @@ package Constants;
  * @author GraceTina
  */
 public enum UserType {
-    AD("Admin"),
+    AD("Administrator"),
     FR("Freelancer"),
     CL("Client");
     

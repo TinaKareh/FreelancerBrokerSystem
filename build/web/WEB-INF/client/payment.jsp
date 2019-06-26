@@ -22,13 +22,20 @@
             <h1 style="font-size: 50px; font-weight: 600; font-style: oblique; color: #0069d9;"> <img src="../../resources/letter-f-logo-vector-4957605_1.jpg" width="70" height="70" alt="logo"/>uristics</h1><span style="font-style: oblique; color: #0069d9; font-size:16px;">A world-class platform for Freelancing activities</span>
         </div>
          <div class="toppnav">
-            <a href="" class="btn btn-sm btn-lg">Help!</a>
+            <a href="/get/online/help" class="btn btn-sm btn-lg">Help!</a>
             <a href="/logout">Log out</a>
             <a href="/client/profile/view">Profile</a>
+            <a  href="/client/view/status">Report</a>
             <a href="/client/payment">Payment</a>
-            <a class="active" href="/dashboard">Home</a>
+            <a href="/client/add/task">Post a Job</a>
+            <a class="active" href="/dashboard">Dashboard</a>
         </div>
-        <div>
+        <div class="container">
+            
+            <div class="card">
+                <div class="card-header">
+                    
+                </div>
             <script
                 src="https://www.paypal.com/sdk/js?client-id=AdRX4l91wPn8BV5rMz7oJJA4sCGxIauUZlTWa20AcrVGy2jOUk8MwgLLEKhSERdU-6dNWm3nUDQ4gVzs">
             </script>
@@ -39,7 +46,7 @@
                             return actions.order.create({
                                 purchase_units: [{
                                         amount: {
-                                            value: '0.01'
+                                            value: '1000.00'
                                         }
                                     }]
                             });
@@ -54,6 +61,8 @@
                     }).render('#paypal-button-container');
                 </script>
             </div>
+            </div>
+            
         </div>
     </body>
 </html>

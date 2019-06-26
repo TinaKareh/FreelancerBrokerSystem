@@ -24,11 +24,11 @@
 
         </div>
         <div class="toppnav">
-            <a href="" class="btn btn-sm btn-lg">Help!</a>
+            <a href="/get/online/help" class="btn btn-sm btn-lg">Help!</a>
             <a href="/logout">Log out</a>
-            <a class="active" href="/freelancer/profile/view">Profile</a>
-            <a  href="/dashboard/freelancer">Home</a>
-            <input type="text" class="form-control" style="width: 20%" placeholder="Search..">
+            <a href="/freelancer/profile/view">Profile</a>
+            <a href="/freelancer/assigned/tasks">Assigned Tasks</a>
+            <a class="active" href="/dashboard/freelancer">Home</a>
         </div>
         <div class="container">
             <fieldset>
@@ -52,15 +52,15 @@
                                 <label for="endYear">End Year</label><span style="color: #0069d9;">*</span><br>
                                 <input name="endYear" class="form-control" type="text" id="endYear"  value="" required="">
                             </div>
-                             <div class="form-group">
-                                 <input type="hidden" name="category" value="education">
+                            <div class="form-group">
+                                <input type="hidden" name="category" value="education">
                             </div>
                         </div>
                         <div class="card-footer"> 
-                            
+
                             <div class="form-group">
-                            <button type="submit" class="btn btn-sm btn-primary" style=""  >Save</button>
-                            <button type="reset" class="btn btn-sm btn-danger" style=""  >Cancel</button>
+                                <button type="submit" class="btn btn-sm btn-primary" style=""  >Save</button>
+                                <button type="reset" class="btn btn-sm btn-danger" style=""  >Cancel</button>
                             </div>
                         </div>
                     </form>

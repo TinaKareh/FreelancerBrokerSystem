@@ -1,0 +1,16 @@
+Model/Bid_.java
+Model/Experience_.java
+Model/Task_.java
+Model/TaskSkill_.java
+Model/AuthUser_.java
+Model/AssignedTasks_.java
+Model/Education_.java
+Model/Administrator_.java
+Model/AccountDetails_.java
+Model/Freelancer_.java
+Model/ProjectReport_.java
+Model/ContactUs_.java
+Model/Client_.java
+Model/FreelancerSkill_.java
+Model/StatusReport_.java
+Model/Skill_.java

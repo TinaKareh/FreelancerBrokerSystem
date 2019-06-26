@@ -17,14 +17,14 @@ public enum TaskStatus {
         this.status = status;
     }
   public String getStatus() {
-        if (status == "BD")
-            return "BIDDING";
+        if (status == "CP")
+            return "COMPLETE";
         else if(status == "IP")
             return "IN PROGRESS";
         else if(status =="CL")
             return "CLOSED";
         else
-            return "COMPLETE";
+            return "BIDDING";
     }
     
     @Override
